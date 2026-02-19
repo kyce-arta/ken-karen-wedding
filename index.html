@@ -11,7 +11,7 @@
   --primary: #c08497;
   --accent: #f8c8dc;
   --text: #4a4a4a;
-  --gold: linear-gradient(45deg,#d4af37,#f6e27a,#d4af37);
+  /**--gold: linear-gradient(45deg,#d4af37,#f6e27a,#d4af37);**/
 }
 
 body {
@@ -23,7 +23,63 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= ENVELOPE INTRO ================= */
+/* ================= BACKGROUND FLOATING ELEMENTS ================= */
+.floating-container {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating {
+  position: absolute;
+  top: -40px;
+  opacity: 0.7;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Romantic Hearts */
+.heart {
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.heart::before { top: -9px; left: 0; }
+.heart::after { left: -9px; top: 0; }
+
+/* Garden Petal */
+.petal {
+  width: 14px;
+  height: 22px;
+  background: var(--accent);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+}
+
+/* Modern Minimal Lines */
+.line {
+  width: 3px;
+  height: 20px;
+  background: var(--accent);
+}
+
+/* ================= ENVELOPE ================= */
 .envelope-wrapper {
   position: fixed;
   inset: 0;
@@ -34,7 +90,6 @@ body {
   z-index: 9999;
   animation: fadeEnvelope 3.5s forwards ease 2.5s;
 }
-
 .envelope {
   position: relative;
   width: 340px;
@@ -44,11 +99,8 @@ body {
   box-shadow: 0 20px 50px rgba(0,0,0,0.2);
   overflow: hidden;
 }
-
 .flap {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background: #fdfdfd;
@@ -56,7 +108,6 @@ body {
   transform-origin: top;
   animation: openFlap 2.5s ease forwards;
 }
-
 .letter {
   position: absolute;
   bottom: 0;
@@ -68,35 +119,30 @@ body {
   transform: translateX(-50%) translateY(100%);
   animation: slideLetter 2.5s ease forwards 0.8s;
 }
-
 @keyframes openFlap {
-  0% { transform: rotateX(0deg); }
   100% { transform: rotateX(-180deg); }
 }
-
 @keyframes slideLetter {
-  0% { transform: translateX(-50%) translateY(100%); }
   100% { transform: translateX(-50%) translateY(-20%); }
 }
-
 @keyframes fadeEnvelope {
   to { opacity: 0; visibility: hidden; }
 }
 
-/* ================= INVITATION CARD ================= */
+/* ================= CARD ================= */
 .container {
+  position: relative;
+  z-index: 2;
   max-width: 720px;
   margin: 100px auto;
   background: white;
   border-radius: 32px;
   padding: 80px 50px;
   text-align: center;
-  position: relative;
   box-shadow: 0 30px 70px rgba(0,0,0,0.15);
   border: 4px solid transparent;
   background-clip: padding-box;
 }
-
 .container::before {
   content: "";
   position: absolute;
@@ -109,23 +155,17 @@ body {
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
-  margin-bottom: 10px;
-  animation: fadeIn 2s ease forwards;
 }
 
-h2 { font-weight: 300; margin-bottom: 40px; }
-
-/* ================= ELEGANT PHOTO FRAME ================= */
 .photo-frame {
   width: 220px;
   height: 220px;
-  margin: 0 auto 40px;
+  margin: 30px auto;
   border-radius: 50%;
   padding: 10px;
   background: var(--gold);
   animation: float 5s ease-in-out infinite;
 }
-
 .photo-inner {
   width: 100%;
   height: 100%;
@@ -133,103 +173,34 @@ h2 { font-weight: 300; margin-bottom: 40px; }
   background: url('https://via.placeholder.com/400') center/cover no-repeat;
   border: 6px solid white;
 }
+@keyframes float {
+  50% { transform: translateY(-12px); }
+}
 
-.details { font-size: 1.2rem; margin-top: 10px; }
-
-.rsvp { margin-top: 40px; }
-
-input, button {
-  padding: 12px 20px;
-  margin: 10px;
-  border-radius: 30px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
+body.romantic {
+  --bg: #fff0f5;
+  --primary: #c08497;
+  --accent: #f472b6;
+}
+body.modern {
+  --bg: #f3f4f6;
+  --primary: #111827;
+  --accent: #6b7280;
+  --text: #111827;
+}
+body.garden {
+  --bg: #f0fff4;
+  --primary: #2f855a;
+  --accent: #48bb78;
+  --text: #22543d;
 }
 
 button {
   background: var(--primary);
   color: white;
   border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.theme-selector { margin-top: 30px; }
-
-/* ================= THEMES ================= */
-body.romantic {
-  --bg: #fff0f5;
-  --primary: #c08497;
-  --accent: #f8c8dc;
-}
-
-body.modern {
-  --bg: #f3f4f6;
-  --primary: #111827;
-  --accent: #9ca3af;
-  --text: #111827;
-}
-
-body.garden {
-  --bg: #f0fff4;
-  --primary: #2f855a;
-  --accent: #9ae6b4;
-  --text: #22543d;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-/* ================= FLOATING PETALS FIXED ================= */
-.flower {
-  position: fixed;
-  top: -20px;
-  width: 16px;
-  height: 16px;
-  background: var(--accent);
-  border-radius: 50%;
-  opacity: 0.7;
-  pointer-events: none;
-  animation: fall linear infinite;
-}
-
-@keyframes fall {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(110vh) rotate(360deg); }
-}
-
-/* Paper Texture */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-  opacity: 0.2;
-  pointer-events: none;
-}
-
-.music-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: var(--primary);
-  color: white;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
   cursor: pointer;
 }
 
@@ -237,7 +208,8 @@ body::after {
 </head>
 <body class="romantic">
 
-<!-- Envelope Animation -->
+<div class="floating-container" id="floating"></div>
+
 <div class="envelope-wrapper">
   <div class="envelope">
     <div class="flap"></div>
@@ -253,54 +225,55 @@ body::after {
     <div class="photo-inner"></div>
   </div>
 
-  <div class="details">
-    <p>June 12, 2026</p>
-    <p>Malibu, California</p>
-  </div>
+  <p>June 12, 2026</p>
+  <p>Malibu, California</p>
 
-  <div class="rsvp">
-    <h3>RSVP</h3>
-    <input type="text" placeholder="Your Name" />
-    <br/>
-    <label>
-      <input type="checkbox" /> Bringing a +1
-    </label>
-    <br/>
-    <button onclick="alert('Thank you for your RSVP!')">Confirm Attendance</button>
-  </div>
+  <h3>RSVP</h3>
+  <input type="text" placeholder="Your Name" />
+  <br/><br/>
+  <label>
+    <input type="checkbox" /> Bringing a +1
+  </label>
+  <br/><br/>
+  <button onclick="alert('Thank you for your RSVP!')">Confirm Attendance</button>
 
-  <div class="theme-selector">
-    <h3>Select Theme</h3>
-    <button onclick="setTheme('romantic')">Romantic</button>
-    <button onclick="setTheme('modern')">Modern</button>
-    <button onclick="setTheme('garden')">Garden</button>
-  </div>
+  <h3 style="margin-top:40px;">Select Theme</h3>
+  <button onclick="setTheme('romantic')">Romantic</button>
+  <button onclick="setTheme('modern')">Modern</button>
+  <button onclick="setTheme('garden')">Garden</button>
 </div>
-
-<button class="music-btn" onclick="toggleMusic()">♪</button>
-<audio id="bgMusic" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-</audio>
 
 <script>
 function setTheme(theme) {
   document.body.className = theme;
+  generateFloating();
 }
 
-function toggleMusic() {
-  const music = document.getElementById('bgMusic');
-  if (music.paused) music.play(); else music.pause();
+function generateFloating() {
+  const container = document.getElementById('floating');
+  container.innerHTML = '';
+  const theme = document.body.className;
+
+  for (let i = 0; i < 35; i++) {
+    const el = document.createElement('div');
+    el.classList.add('floating');
+
+    if (theme === 'romantic') {
+      el.classList.add('heart');
+    } else if (theme === 'garden') {
+      el.classList.add('petal');
+    } else {
+      el.classList.add('line');
+    }
+
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.animationDuration = (5 + Math.random() * 5) + 's';
+    el.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(el);
+  }
 }
 
-/* Petals from top */
-for (let i = 0; i < 30; i++) {
-  const flower = document.createElement('div');
-  flower.classList.add('flower');
-  flower.style.left = Math.random() * 100 + 'vw';
-  flower.style.animationDuration = (5 + Math.random() * 5) + 's';
-  flower.style.animationDelay = Math.random() * 5 + 's';
-  document.body.appendChild(flower);
-}
+generateFloating();
 </script>
 
 </body>
