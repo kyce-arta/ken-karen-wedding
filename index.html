@@ -23,8 +23,8 @@ body {
   overflow-x: hidden;
 }
 
-/* Envelope Intro */
-.envelope {
+/* ================= ENVELOPE INTRO ================= */
+.envelope-wrapper {
   position: fixed;
   inset: 0;
   background: var(--bg);
@@ -32,27 +32,61 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  animation: openEnvelope 2.5s ease forwards;
+  animation: fadeEnvelope 3.5s forwards ease 2.5s;
 }
 
-.envelope::before {
-  content: "";
-  width: 320px;
-  height: 200px;
+.envelope {
+  position: relative;
+  width: 340px;
+  height: 220px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fdfdfd;
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  transform-origin: top;
+  animation: openFlap 2.5s ease forwards;
+}
+
+.letter {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 90%;
+  height: 90%;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  transform: translateX(-50%) translateY(100%);
+  animation: slideLetter 2.5s ease forwards 0.8s;
 }
 
-@keyframes openEnvelope {
-  0% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; }
+@keyframes openFlap {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-180deg); }
 }
 
+@keyframes slideLetter {
+  0% { transform: translateX(-50%) translateY(100%); }
+  100% { transform: translateX(-50%) translateY(-20%); }
+}
+
+@keyframes fadeEnvelope {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* ================= INVITATION CARD ================= */
 .container {
   max-width: 720px;
-  margin: 80px auto;
+  margin: 100px auto;
   background: white;
   border-radius: 32px;
   padding: 80px 50px;
@@ -81,45 +115,23 @@ h1 {
 
 h2 { font-weight: 300; margin-bottom: 40px; }
 
-/* Heart Frame */
-.heart-frame {
-  width: 150px;
-  height: 140px;
+/* ================= ELEGANT PHOTO FRAME ================= */
+.photo-frame {
+  width: 220px;
+  height: 220px;
   margin: 0 auto 40px;
-  position: relative;
-  transform: rotate(-45deg);
-  background: var(--accent);
-  animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
-}
-
-.heart-frame:before,
-.heart-frame:after {
-  content: "";
-  width: 150px;
-  height: 140px;
-  position: absolute;
-  background: var(--accent);
   border-radius: 50%;
+  padding: 10px;
+  background: var(--gold);
+  animation: float 5s ease-in-out infinite;
 }
 
-.heart-frame:before { top: -75px; left: 0; }
-.heart-frame:after { left: 75px; top: 0; }
-
-.heart-img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  transform: translate(-50%, -50%) rotate(45deg);
-  background: url('https://via.placeholder.com/200') center/cover no-repeat;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-@keyframes glow {
-  0%,100% { box-shadow: 0 0 20px var(--accent); }
-  50% { box-shadow: 0 0 40px var(--primary); }
+.photo-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: url('https://via.placeholder.com/400') center/cover no-repeat;
+  border: 6px solid white;
 }
 
 .details { font-size: 1.2rem; margin-top: 10px; }
@@ -149,7 +161,7 @@ button:hover {
 
 .theme-selector { margin-top: 30px; }
 
-/* Themes */
+/* ================= THEMES ================= */
 body.romantic {
   --bg: #fff0f5;
   --primary: #c08497;
@@ -176,23 +188,25 @@ body.garden {
 }
 
 @keyframes float {
-  0%,100% { transform: rotate(-45deg) translateY(0); }
-  50% { transform: rotate(-45deg) translateY(-12px); }
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
-/* Floating Petals */
+/* ================= FLOATING PETALS FIXED ================= */
 .flower {
   position: fixed;
-  width: 18px;
-  height: 18px;
+  top: -20px;
+  width: 16px;
+  height: 16px;
   background: var(--accent);
   border-radius: 50%;
-  opacity: 0.6;
+  opacity: 0.7;
+  pointer-events: none;
   animation: fall linear infinite;
 }
 
 @keyframes fall {
-  0% { transform: translateY(-10vh) rotate(0deg); }
+  0% { transform: translateY(0) rotate(0deg); }
   100% { transform: translateY(110vh) rotate(360deg); }
 }
 
@@ -223,14 +237,20 @@ body::after {
 </head>
 <body class="romantic">
 
-<div class="envelope"></div>
+<!-- Envelope Animation -->
+<div class="envelope-wrapper">
+  <div class="envelope">
+    <div class="flap"></div>
+    <div class="letter"></div>
+  </div>
+</div>
 
 <div class="container">
   <h1>Karen & Ken</h1>
   <h2>Are Getting Married</h2>
 
-  <div class="heart-frame">
-    <div class="heart-img"></div>
+  <div class="photo-frame">
+    <div class="photo-inner"></div>
   </div>
 
   <div class="details">
@@ -272,12 +292,13 @@ function toggleMusic() {
   if (music.paused) music.play(); else music.pause();
 }
 
-for (let i = 0; i < 25; i++) {
+/* Petals from top */
+for (let i = 0; i < 30; i++) {
   const flower = document.createElement('div');
   flower.classList.add('flower');
   flower.style.left = Math.random() * 100 + 'vw';
-  flower.style.animationDuration = (6 + Math.random() * 6) + 's';
-  flower.style.opacity = Math.random();
+  flower.style.animationDuration = (5 + Math.random() * 5) + 's';
+  flower.style.animationDelay = Math.random() * 5 + 's';
   document.body.appendChild(flower);
 }
 </script>
