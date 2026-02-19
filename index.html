@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fffaf7;
+  --primary: #c08497;
+  --accent: #f8c8dc;
+  --text: #4a4a4a;
+  --gold: linear-gradient(45deg,#d4af37,#f6e27a,#d4af37);
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.6s ease;
+  overflow-x: hidden;
+}
+
+/* Envelope Intro */
+.envelope {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: openEnvelope 2.5s ease forwards;
+}
+
+.envelope::before {
+  content: "";
+  width: 320px;
+  height: 200px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+@keyframes openEnvelope {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+.container {
+  max-width: 720px;
+  margin: 80px auto;
+  background: white;
+  border-radius: 32px;
+  padding: 80px 50px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 36px;
+  background: var(--gold);
+  z-index: -1;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: fadeIn 2s ease forwards;
+}
+
+h2 { font-weight: 300; margin-bottom: 40px; }
+
+/* Heart Frame */
+.heart-frame {
+  width: 150px;
+  height: 140px;
+  margin: 0 auto 40px;
+  position: relative;
+  transform: rotate(-45deg);
+  background: var(--accent);
+  animation: float 4s ease-in-out infinite, glow 3s ease-in-out infinite;
+}
+
+.heart-frame:before,
+.heart-frame:after {
+  content: "";
+  width: 150px;
+  height: 140px;
+  position: absolute;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.heart-frame:before { top: -75px; left: 0; }
+.heart-frame:after { left: 75px; top: 0; }
+
+.heart-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: url('https://via.placeholder.com/200') center/cover no-repeat;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+@keyframes glow {
+  0%,100% { box-shadow: 0 0 20px var(--accent); }
+  50% { box-shadow: 0 0 40px var(--primary); }
+}
+
+.details { font-size: 1.2rem; margin-top: 10px; }
+
+.rsvp { margin-top: 40px; }
+
+input, button {
+  padding: 12px 20px;
+  margin: 10px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.theme-selector { margin-top: 30px; }
+
+/* Themes */
+body.romantic {
+  --bg: #fff0f5;
+  --primary: #c08497;
+  --accent: #f8c8dc;
+}
+
+body.modern {
+  --bg: #f3f4f6;
+  --primary: #111827;
+  --accent: #9ca3af;
+  --text: #111827;
+}
+
+body.garden {
+  --bg: #f0fff4;
+  --primary: #2f855a;
+  --accent: #9ae6b4;
+  --text: #22543d;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%,100% { transform: rotate(-45deg) translateY(0); }
+  50% { transform: rotate(-45deg) translateY(-12px); }
+}
+
+/* Floating Petals */
+.flower {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* Paper Texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body class="romantic">
+
+<div class="envelope"></div>
+
+<div class="container">
+  <h1>Karen & Ken</h1>
+  <h2>Are Getting Married</h2>
+
+  <div class="heart-frame">
+    <div class="heart-img"></div>
+  </div>
+
+  <div class="details">
+    <p>June 12, 2026</p>
+    <p>Malibu, California</p>
+  </div>
+
+  <div class="rsvp">
+    <h3>RSVP</h3>
+    <input type="text" placeholder="Your Name" />
+    <br/>
+    <label>
+      <input type="checkbox" /> Bringing a +1
+    </label>
+    <br/>
+    <button onclick="alert('Thank you for your RSVP!')">Confirm Attendance</button>
+  </div>
+
+  <div class="theme-selector">
+    <h3>Select Theme</h3>
+    <button onclick="setTheme('romantic')">Romantic</button>
+    <button onclick="setTheme('modern')">Modern</button>
+    <button onclick="setTheme('garden')">Garden</button>
+  </div>
+</div>
+
+<button class="music-btn" onclick="toggleMusic()">♪</button>
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function setTheme(theme) {
+  document.body.className = theme;
+}
+
+function toggleMusic() {
+  const music = document.getElementById('bgMusic');
+  if (music.paused) music.play(); else music.pause();
+}
+
+for (let i = 0; i < 25; i++) {
+  const flower = document.createElement('div');
+  flower.classList.add('flower');
+  flower.style.left = Math.random() * 100 + 'vw';
+  flower.style.animationDuration = (6 + Math.random() * 6) + 's';
+  flower.style.opacity = Math.random();
+  document.body.appendChild(flower);
+}
+</script>
+
+</body>
+</html>
