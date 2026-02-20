@@ -11,19 +11,6 @@
   --primary: #c08497;
   --accent: #f8c8dc;
   --text: #4a4a4a;
-  /**--gold: linear-gradient(45deg,#d4af37,#f6e27a,#d4af37);**/
-}
-
-body.romantic .subtitle {
-  color: #ad1457;
-}
-
-body.modern .subtitle {
-  color: #555;
-}
-
-body.garden .subtitle {
-  color: #3d6b35;
 }
 
 body {
@@ -34,6 +21,23 @@ body {
   transition: all 0.6s ease;
   overflow-x: hidden;
 }
+.back {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, #fdfbf8 0%, #fff 100%);
+            border: 2px solid #e8e3dc;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+        }
+
+        .front {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, #fdfbf8 0%, #fff 100%);
+            border: 2px solid #e8e3dc;
+            border-radius: 12px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+            z-index: 2;
+        }
 
 /* ================= BACKGROUND FLOATING ELEMENTS ================= */
 .floating-container {
@@ -47,7 +51,7 @@ body {
 .floating {
   position: absolute;
   top: -40px;
-  opacity: 0.7;
+  opacity: 0.45; /* softer */
   animation: fall linear infinite;
 }
 
@@ -56,29 +60,30 @@ body {
   100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* Romantic Hearts */
+/* Romantic Hearts (smaller) */
 .heart {
-  width: 18px;
-  height: 18px;
+  width: 6px;
+  height: 6px;
   background: var(--accent);
   transform: rotate(45deg);
+  position: relative;
 }
 .heart::before,
 .heart::after {
   content: "";
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 6px;
+  height: 6px;
   background: var(--accent);
   border-radius: 50%;
 }
-.heart::before { top: -9px; left: 0; }
-.heart::after { left: -9px; top: 0; }
+.heart::before { top: -6px; left: 0; }
+.heart::after { left: -6px; top: 0; }
 
-/* Garden Petal */
+/* Garden Petal (smaller & softer) */
 .petal {
-  width: 14px;
-  height: 22px;
+  width: 10px;
+  height: 16px;
   background: var(--accent);
   border-radius: 50% 50% 50% 0;
   transform: rotate(45deg);
@@ -86,8 +91,8 @@ body {
 
 /* Modern Minimal Lines */
 .line {
-  width: 3px;
-  height: 20px;
+  width: 2px;
+  height: 16px;
   background: var(--accent);
 }
 
@@ -113,27 +118,23 @@ body {
 }
 .flap {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #fdfdfd;
-  clip-path: polygon(0 0, 100% 0, 50% 60%);
-  transform-origin: top;
-  animation: openFlap 2.5s ease forwards;
+  z-index:999999 !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55%;
+    background: linear-gradient(145deg, #f4f1ec 0%, #fbf9f5 100%);
+    border: 2px solid #e2d9cc;
+    clip-path: polygon(0% 0, 100% 0%, 100% 15%, 50% 100%, 0 15%);
+    animation: openFlap 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
+    transform-origin: top;
 }
-.letter {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 90%;
-  height: 90%;
-  background: white;
-  border-radius: 6px;
-  transform: translateX(-50%) translateY(100%);
-  animation: slideLetter 2.5s ease forwards 0.8s;
-}
+
 @keyframes openFlap {
-  100% { transform: rotateX(-180deg); }
-}
+            0% { transform: rotateX(0deg); }
+            60% { transform: rotateX(-90deg); }
+            100% { transform: rotateX(-120deg); }
+        }
 @keyframes slideLetter {
   100% { transform: translateX(-50%) translateY(-20%); }
 }
@@ -151,22 +152,13 @@ body {
   border-radius: 32px;
   padding: 80px 50px;
   text-align: center;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.15);
-  border: 4px solid transparent;
-  background-clip: padding-box;
-}
-.container::before {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 36px;
-  background: var(--gold);
-  z-index: -1;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
+  margin-bottom: 10px;
 }
 
 .photo-frame {
@@ -174,21 +166,61 @@ h1 {
   height: 220px;
   margin: 30px auto;
   border-radius: 50%;
-  padding: 10px;
-  background: var(--gold);
+  padding: 8px;
+  background: #f3f3f3; /* subtle instead of gold */
   animation: float 5s ease-in-out infinite;
 }
 .photo-inner {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: url('https://i.pinimg.com/736x/7b/af/e9/7bafe964bd2bc1c5881a4fe40aa8284a.jpg') center/cover no-repeat;
+  background: url('https://www.helzberg.com/on/demandware.static/-/Library-Sites-helzberg-content/default/dw3b678a0f/images/catLanding/engagement-rings/redesign/desktop/DT_765_moissanite.png') center/cover no-repeat;
   border: 6px solid white;
 }
 @keyframes float {
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
 }
 
+/* ================= FORM STYLING ================= */
+input[type="text"] {
+  width: 280px;
+  padding: 14px 20px;
+  border-radius: 50px;
+  border: 1px solid #e5e5e5;
+  font-size: 0.95rem;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+label {
+  font-size: 0.9rem;
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+/* ================= THEMES ================= */
 body.romantic {
   --bg: #fff0f5;
   --primary: #c08497;
@@ -207,15 +239,6 @@ body.garden {
   --text: #22543d;
 }
 
-button {
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 30px;
-  cursor: pointer;
-}
-
 </style>
 </head>
 <body class="romantic">
@@ -224,20 +247,23 @@ button {
 
 <div class="envelope-wrapper">
   <div class="envelope">
-    <div class="flap"></div>
-    <div class="letter"></div>
+    <div class="back"></div>
+        <div class="front">
+            <div class="flap"></div>
+            
+        </div>
   </div>
 </div>
 
 <div class="container">
-  <h1>Karen & Ken</h1>
-  <h2>Are Getting Married</h2>
+  <h1>Ken & Karen</h1>
+  <h2>You are invited</h2>
 
   <div class="photo-frame">
     <div class="photo-inner"></div>
   </div>
 
-  <p>April 11, 2026</p>
+  <p>April 11, 2026 - 2:00PM</p>
   <p>Chateau de Busay</p>
 
   <h3>RSVP</h3>
@@ -279,7 +305,7 @@ function generateFloating() {
     }
 
     el.style.left = Math.random() * 100 + 'vw';
-    el.style.animationDuration = (5 + Math.random() * 5) + 's';
+    el.style.animationDuration = (6 + Math.random() * 4) + 's';
     el.style.animationDelay = Math.random() * 5 + 's';
     container.appendChild(el);
   }
