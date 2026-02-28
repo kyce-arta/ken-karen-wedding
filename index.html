@@ -4,314 +4,337 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Wedding Invitation</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --bg: #fffaf7;
-  --primary: #c08497;
-  --accent: #f8c8dc;
-  --text: #4a4a4a;
+  --bg: #f4f1ea;
+  --card: #ffffff;
+  --text: #3e3e3e;
+  --accent: #d8cfc4;
+  --floral-main: #d48ca3;
+  --floral-leaf: #4f6d4f;
 }
 
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
   background: var(--bg);
+  font-family: 'Cormorant Garamond', serif;
   color: var(--text);
-  transition: all 0.6s ease;
-  overflow-x: hidden;
-}
-.back {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(145deg, #fdfbf8 0%, #fff 100%);
-            border: 2px solid #e8e3dc;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
-        }
-
-        .front {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(145deg, #fdfbf8 0%, #fff 100%);
-            border: 2px solid #e8e3dc;
-            border-radius: 12px;
-            box-shadow: 0 15px 45px rgba(0,0,0,0.12);
-            z-index: 2;
-        }
-
-/* ================= BACKGROUND FLOATING ELEMENTS ================= */
-.floating-container {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   overflow: hidden;
 }
 
-.floating {
+/* Paper texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Falling Shapes */
+.background-shapes {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.shape {
   position: absolute;
-  top: -40px;
-  opacity: 0.45; /* softer */
+  top: -60px;
+  opacity: 0.25;
   animation: fall linear infinite;
 }
 
 @keyframes fall {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(110vh) rotate(360deg); }
+  to { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* Romantic Hearts (smaller) */
-.heart {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  transform: rotate(45deg);
-  position: relative;
-}
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-}
-.heart::before { top: -6px; left: 0; }
-.heart::after { left: -6px; top: 0; }
-
-/* Garden Petal (smaller & softer) */
-.petal {
-  width: 10px;
-  height: 16px;
-  background: var(--accent);
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(45deg);
+body.romantic .shape {
+  width: 18px; height: 18px;
+  background: var(--floral-main);
+  border-radius: 60% 40% 60% 40%;
 }
 
-/* Modern Minimal Lines */
-.line {
-  width: 2px;
-  height: 16px;
-  background: var(--accent);
+body.modern .shape {
+  width: 14px; height: 14px;
+  background: #888;
 }
 
-/* ================= ENVELOPE ================= */
+body.garden .shape {
+  width: 20px; height: 20px;
+  background: var(--floral-leaf);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+/* Envelope */
 .envelope-wrapper {
   position: fixed;
   inset: 0;
-  background: var(--bg);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
-  animation: fadeEnvelope 3.5s forwards ease 2.5s;
+  background: #e7e1d6;
+  z-index: 20;
+  animation: fadeEnvelope 1s ease 3.2s forwards;
 }
+
 .envelope {
   position: relative;
-  width: 340px;
-  height: 220px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-  overflow: hidden;
+  width: 500px;
+  height: 320px;
+  background: #f0eadf;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
 }
+
 .flap {
   position: absolute;
-  z-index:999999 !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 55%;
-    background: linear-gradient(145deg, #f4f1ec 0%, #fbf9f5 100%);
-    border: 2px solid #e2d9cc;
-    clip-path: polygon(0% 0, 100% 0%, 100% 15%, 50% 100%, 0 15%);
-    animation: openFlap 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
-    transform-origin: top;
+  top: 0;
+  width: 100%;
+  height: 160px;
+  background: #e4dccf;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top;
+  animation: openFlap 2s ease forwards;
 }
 
 @keyframes openFlap {
-            0% { transform: rotateX(0deg); }
-            60% { transform: rotateX(-90deg); }
-            100% { transform: rotateX(-120deg); }
-        }
-@keyframes slideLetter {
-  100% { transform: translateX(-50%) translateY(-20%); }
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-180deg); }
 }
+
 @keyframes fadeEnvelope {
   to { opacity: 0; visibility: hidden; }
 }
 
-/* ================= CARD ================= */
-.container {
+/* Invitation Card */
+.invitation {
   position: relative;
-  z-index: 2;
-  max-width: 720px;
-  margin: 100px auto;
-  background: white;
-  border-radius: 32px;
-  padding: 80px 50px;
-  text-align: center;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+  width: 720px;
+  background: var(--card);
+  padding: 110px 90px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+  transform-origin: center top;
+  transform: translateY(-200px) scale(0.05);
+  animation: revealCard 1.8s cubic-bezier(.2,.9,.2,1) 2s forwards;
 }
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  margin-bottom: 10px;
+@keyframes revealCard {
+  0% { transform: translateY(-200px) scale(0.05); }
+  70% { transform: translateY(15px) scale(1.08); }
+  100% { transform: translateY(0) scale(1); }
 }
 
-.photo-frame {
-  width: 220px;
-  height: 220px;
-  margin: 30px auto;
-  border-radius: 50%;
-  padding: 8px;
-  background: #f3f3f3; /* subtle instead of gold */
-  animation: float 5s ease-in-out infinite;
-}
-.photo-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: url('https://www.helzberg.com/on/demandware.static/-/Library-Sites-helzberg-content/default/dw3b678a0f/images/catLanding/engagement-rings/redesign/desktop/DT_765_moissanite.png') center/cover no-repeat;
-  border: 6px solid white;
-}
-@keyframes float {
-  50% { transform: translateY(-10px); }
+/* Elegant Double Wedding Border */
+.invitation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--accent);
+  pointer-events: none;
 }
 
-/* ================= FORM STYLING ================= */
-input[type="text"] {
-  width: 280px;
-  padding: 14px 20px;
+.invitation::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid var(--accent);
+  pointer-events: none;
+}
+
+/* Decorative Corner Accents */
+.invitation .border-accent {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-color: var(--floral-main);
+  pointer-events: none;
+}
+
+.border-top-left {
+  top: 18px;
+  left: 18px;
+  border-top: 3px solid;
+  border-left: 3px solid;
+}
+
+.border-top-right {
+  top: 18px;
+  right: 18px;
+  border-top: 3px solid;
+  border-right: 3px solid;
+}
+
+.border-bottom-left {
+  bottom: 18px;
+  left: 18px;
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+}
+
+.border-bottom-right {
+  bottom: 18px;
+  right: 18px;
+  border-bottom: 3px solid;
+  border-right: 3px solid;
+}
+
+/* Typography */
+h4 { text-align: center; letter-spacing: 4px; font-weight: 400; font-size: 0.9rem; margin: 0; }
+
+.names { text-align: center; margin: 40px 0; }
+.names h1 { font-family: 'Great Vibes', cursive; font-size: 4.2rem; margin: 10px 0; font-weight: normal; }
+.and { text-align: center; font-family: 'Great Vibes', cursive; font-size: 2.4rem; margin: 10px 0; }
+
+.details { text-align: center; margin-top: 40px; line-height: 2; font-size: 1.1rem; letter-spacing: 1.5px; }
+
+/* RSVP Button */
+.rsvp-section { text-align: center; margin-top: 40px; }
+
+.rsvp-btn {
+  padding: 14px 40px;
+  font-size: 1rem;
+  letter-spacing: 2px;
   border-radius: 50px;
-  border: 1px solid #e5e5e5;
-  font-size: 0.95rem;
-  font-family: 'Montserrat', sans-serif;
-  outline: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-}
-
-input[type="text"]:focus {
-  border-color: var(--primary);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
-
-label {
-  font-size: 0.9rem;
-}
-
-button {
-  background: var(--primary);
+  border: 2px solid var(--accent);
+  background: linear-gradient(145deg, var(--floral-main), var(--floral-leaf));
   color: white;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 50px;
   cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  font-family: 'Cormorant Garamond', serif;
+  transition: 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+.rsvp-btn:hover {
+  transform: translateY(-5px) scale(1.05);
 }
 
-/* ================= THEMES ================= */
-body.romantic {
-  --bg: #fff0f5;
-  --primary: #c08497;
-  --accent: #f472b6;
+.guest-name { margin-top: 15px; font-style: italic; opacity: 0.85; }
+
+/* Themes */
+body.modern { --floral-main:#444; --floral-leaf:#888; --accent:#ddd; }
+body.garden { --floral-main:#2f855a; --floral-leaf:#3f7d5c; --accent:#cfe8d8; }
+
+.theme-switch {
+  position: fixed;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
 }
-body.modern {
-  --bg: #f3f4f6;
-  --primary: #111827;
-  --accent: #6b7280;
-  --text: #111827;
-}
-body.garden {
-  --bg: #f0fff4;
-  --primary: #2f855a;
-  --accent: #48bb78;
-  --text: #22543d;
+
+.theme-switch button {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 </style>
 </head>
 <body class="romantic">
 
-<div class="floating-container" id="floating"></div>
+<div class="background-shapes" id="bgShapes"></div>
 
 <div class="envelope-wrapper">
   <div class="envelope">
-    <div class="back"></div>
-        <div class="front">
-            <div class="flap"></div>
-            
-        </div>
+    <div class="flap"></div>
   </div>
 </div>
 
-<div class="container">
-  <h1>Ken & Karen</h1>
-  <h2>You are invited</h2>
+<div class="invitation">
 
-  <div class="photo-frame">
-    <div class="photo-inner"></div>
+    <!-- Elegant Border Accents -->
+  <div class="border-accent border-top-left"></div>
+  <div class="border-accent border-top-right"></div>
+  <div class="border-accent border-bottom-left"></div>
+  <div class="border-accent border-bottom-right"></div>
+
+  <h4>YOU ARE CORDIALLY INVITED TO THE WEDDING OF</h4>
+
+  <div class="names">
+    <h1>Ken Bryce</h1>
+    <div class="and">and</div>
+    <h1>Karen Chrisele</h1>
   </div>
 
-  <p>April 11, 2026 - 2:00PM</p>
-  <p>Chateau de Busay</p>
+  <div class="details">
+    SATURDAY,<br>
+    April 11, 2026<br><br>
+    Chateau de Busay Inn & Restaurant<br>
+  </div>
 
-  <h3>RSVP</h3>
-  <input type="text" placeholder="Your Name" />
-  <br/><br/>
-  <label>
-    <input type="checkbox" /> Bringing a +1
-  </label>
-  <br/><br/>
-  <button onclick="alert('Thank you for your RSVP!')">Confirm Attendance</button>
+  <div class="rsvp-section">
+    <a class="rsvp-btn" id="rsvpBtn"  >Confirm Attendance</a>
+    <div class="guest-name" id="guestName"></div>
+  </div>
 
-  <h3 style="margin-top:40px;">Select Theme</h3>
-  <button onclick="setTheme('romantic')">Romantic</button>
+</div>
+
+<div class="theme-switch">
+  <!--<button onclick="setTheme('romantic')">Romantic</button>
   <button onclick="setTheme('modern')">Modern</button>
-  <button onclick="setTheme('garden')">Garden</button>
+  <button onclick="setTheme('garden')">Garden</button>-->
 </div>
 
 <script>
 function setTheme(theme) {
   document.body.className = theme;
-  generateFloating();
 }
 
-function generateFloating() {
-  const container = document.getElementById('floating');
-  container.innerHTML = '';
-  const theme = document.body.className;
+function confirmAttendance(event){
+  const urlParams = new URLSearchParams(queryString);
+  const firstName = urlParams.get('firstname');
+  const lastName = urlParams.get('lastname');
 
-  for (let i = 0; i < 35; i++) {
-    const el = document.createElement('div');
-    el.classList.add('floating');
-
-    if (theme === 'romantic') {
-      el.classList.add('heart');
-    } else if (theme === 'garden') {
-      el.classList.add('petal');
-    } else {
-      el.classList.add('line');
-    }
-
-    el.style.left = Math.random() * 100 + 'vw';
-    el.style.animationDuration = (6 + Math.random() * 4) + 's';
-    el.style.animationDelay = Math.random() * 5 + 's';
-    container.appendChild(el);
-  }
+  console.log(firstName + lastName);
+  
+  window.open('https://docs.google.com/forms/d/e/1FAIpQLSd19hEncYpadlG_vdG9p6oFmklRPb7kHfdRtUbmRVMbH154TA/viewform?usp=pp_url&entry.1460024325=FirstName+LastName');
 }
 
-generateFloating();
+// Generate falling shapes
+const container = document.getElementById('bgShapes');
+for (let i = 0; i < 25; i++) {
+  const s = document.createElement('div');
+  s.classList.add('shape');
+  s.style.left = Math.random() * 100 + 'vw';
+  s.style.animationDuration = (6 + Math.random() * 6) + 's';
+  container.appendChild(s);
+}
+  
+
+// URL Name Parameter
+const params = new URLSearchParams(window.location.search);
+const guest = params.get('name');
+const guestDisplay = document.getElementById('guestName');
+const btn = document.getElementById('rsvpBtn');
+
+if (guest) {
+  guestDisplay.textContent = "Reserved for: " + decodeURIComponent(guest);
+}
+
+btn.addEventListener('click', () => {
+  //btn.textContent = "Confirmed ✓";
+	const queryString = window.location.search;
+
+  const urlParams = new URLSearchParams(queryString);
+  const firstName = urlParams.get('firstname');
+  const lastName = urlParams.get('lastname');
+
+  console.log(firstName + lastName);
+  
+window.open('https://docs.google.com/forms/d/e/1FAIpQLSd19hEncYpadlG_vdG9p6oFmklRPb7kHfdRtUbmRVMbH154TA/viewform?usp=pp_url&entry.1460024325='+firstName+'+'+lastName);		
+});
+
 </script>
 
 </body>
