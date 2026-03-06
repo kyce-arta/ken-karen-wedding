@@ -1,352 +1,1020 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>K &amp; K – Wedding Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="You are invited to celebrate the wedding of Karen &amp; Ken." />
+
   <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/5307/5307639.png">
-<title>K&K</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <!-- Optional Icons (for subtle details) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-<style>
-:root {
-  --bg: #f4f1ea;
-  --card: #ffffff;
-  --text: #3e3e3e;
-  --accent: #d8cfc4;
-  --floral-main: #d48ca3;
-  --floral-leaf: #4f6d4f;
-}
+  <style>
+    :root {
+      --bg: #f5ebe0;
+      --bg-alt: #fff9f3;
+      --accent: #c47c5e;
+      --accent-soft: #e8c8b0;
+      --text-main: #2d3635;
+      --text-soft: #666;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.16);
+      --radius-card: 24px;
+    }
 
-/* ------------------ BODY FIXED ------------------ */
-body {
-  margin: 0;
-  background: var(--bg);
-  font-family: 'Cormorant Garamond', serif;
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.border-accent {
-    color: var(--floral-main);
-}
-/* Paper texture */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 4px 4px;
-  opacity: 0.35;
-  pointer-events: none;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Background shapes */
-.background-shapes {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
+    body {
+      margin: 0;
+      font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
 
-.shape {
-  position: absolute;
-  top: -60px;
-  opacity: 0.25;
-  animation: fall linear infinite;
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-@keyframes fall {
-  to { transform: translateY(110vh) rotate(360deg); }
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-body.romantic .shape {
-  width: 18px; height: 18px;
-  background: var(--floral-main);
-  border-radius: 60% 40% 60% 40%;
-}
+    .container {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-/* ------------------ ENVELOPE ------------------ */
-.envelope-wrapper {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #e7e1d6;
-  z-index: 20;
-  animation: fadeEnvelope 1s ease 3.2s forwards;
-}
+    /* HERO */
 
-.envelope {
-  position: relative;
-  width: 90%;
-  max-width: 500px;
-  height: 220px;
-  background: #f0eadf;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-}
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
 
-.flap {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 110px;
-  background: #e4dccf;
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
-  transform-origin: top;
-  animation: openFlap 2s ease forwards;
-}
+    .hero::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(120deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.45)),
+        url("https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=1600");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      z-index: -2;
+      transform: scale(1.02);
+      filter: saturate(1.1);
+    }
 
-@keyframes openFlap {
-  0% { transform: rotateX(0deg); }
-  100% { transform: rotateX(-180deg); }
-}
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(211, 171, 145, 0.3), transparent 60%);
+      mix-blend-mode: soft-light;
+      z-index: -1;
+    }
 
-@keyframes fadeEnvelope {
-  to { opacity: 0; visibility: hidden; }
-}
+    .hero-inner {
+      padding: 4rem 1.5rem 5rem;
+    }
 
-/* ------------------ INVITATION ------------------ */
-.invitation {
-  position: relative;
-  width: 90%;
-  max-width: 720px;
-  margin: 140px auto 80px auto;
-  background: var(--card);
-  padding: 80px 40px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.08);
-  transform-origin: center top;
-  transform: translateY(-200px) scale(0.05);
-  animation: revealCard 1.8s cubic-bezier(.2,.9,.2,1) 2s forwards;
-}
+    .hero-card {
+      backdrop-filter: blur(18px);
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.92), rgba(255, 249, 243, 0.78));
+      border-radius: 32px;
+      padding: 3rem 2rem 2.5rem;
+      color: var(--text-main);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
 
-@keyframes revealCard {
-  0% { transform: translateY(-200px) scale(0.05); }
-  70% { transform: translateY(15px) scale(1.08); }
-  100% { transform: translateY(0) scale(1); }
-}
+    @media (min-width: 768px) {
+      .hero-card {
+        padding: 3.5rem 4rem 3rem;
+      }
+    }
 
-/* Border */
-.invitation::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 2px solid var(--accent);
-  pointer-events: none;
-}
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(237, 212, 192, 0.8), transparent 70%);
+      opacity: 0.54;
+      pointer-events: none;
+    }
 
-.invitation::after {
-  content: "";
-  position: absolute;
-  inset: 18px;
-  border: 1px solid var(--accent);
-  pointer-events: none;
-}
+    .hero-card::before {
+      width: 320px;
+      height: 320px;
+      top: -160px;
+      left: -160px;
+    }
 
-/* Border corners */
-.border-accent {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border-color: var(--floral-main);
-}
+    .hero-card::after {
+      width: 420px;
+      height: 420px;
+      bottom: -210px;
+      right: -210px;
+    }
 
-.border-top-left {
-  top: 18px;
-  left: 18px;
-  border-top: 3px solid;
-  border-left: 3px solid;
-}
+    .hero-header {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1.6rem;
+    }
 
-.border-top-right {
-  top: 18px;
-  right: 18px;
-  border-top: 3px solid;
-  border-right: 3px solid;
-}
+    .hero-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3.2rem, 5vw, 4.5rem);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
 
-.border-bottom-left {
-  bottom: 18px;
-  left: 18px;
-  border-bottom: 3px solid;
-  border-left: 3px solid;
-}
+    .ampersand {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7em;
+      vertical-align: middle;
+      padding: 0 0.4em;
+      color: var(--accent);
+    }
 
-.border-bottom-right {
-  bottom: 18px;
-  right: 18px;
-  border-bottom: 3px solid;
-  border-right: 3px solid;
-}
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+    }
 
-/* Typography */
-h4 {
-  text-align: center;
-  letter-spacing: 4px;
-  font-weight: 400;
-  font-size: 0.9rem;
-  margin: 0;
-}
+    .hero-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #474747;
+      margin-bottom: 2.2rem;
+    }
 
-.names { text-align: center; margin: 40px 0; }
+    @media (min-width: 640px) {
+      .hero-details {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1.4rem;
+      }
+    }
 
-.names h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 4rem;
-  margin: 10px 0;
-  font-weight: normal;
-}
+    .hero-detail {
+      position: relative;
+      padding-inline: 1.4rem;
+      white-space: nowrap;
+    }
 
-.and {
-  text-align: center;
-  font-family: 'Great Vibes', cursive;
-  font-size: 2.2rem;
-  margin: 10px 0;
-}
+    .hero-detail:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -0.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 18px;
+      background: rgba(0, 0, 0, 0.18);
+    }
 
-.details {
-  text-align: center;
-  margin-top: 40px;
-  line-height: 2;
-  font-size: 1.1rem;
-  letter-spacing: 1.5px;
-}
+    .hero-text {
+      max-width: 540px;
+      margin: 0 auto 2.4rem;
+      font-size: 0.98rem;
+      color: #585858;
+    }
 
-/* RSVP */
-.rsvp-section { text-align: center; margin-top: 40px; }
+    .hero-text strong {
+      font-weight: 700;
+      color: #444;
+    }
 
-.rsvp-btn {
-  display: inline-block;
-  padding: 14px 40px;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  border-radius: 50px;
-  border: 2px solid var(--accent);
-  background: linear-gradient(145deg, var(--floral-main), var(--floral-leaf));
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-  transition: 0.3s ease;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
 
-.rsvp-btn:hover {
-  transform: translateY(-5px);
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 2.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      text-decoration: none;
+    }
 
-.guest-name {
-  margin-top: 15px;
-  font-style: italic;
-  opacity: 0.85;
-}
+    .btn-primary {
+      background-image: linear-gradient(135deg, #c47c5e, #e2a580);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+    }
 
-/* ------------------ MOBILE ------------------ */
-@media (max-width: 600px) {
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
+      filter: brightness(1.03);
+    }
 
-  .invitation {
-    padding: 60px 25px;
-    margin-top: 120px;
-  }
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(0, 0, 0, 0.16);
+      color: #444;
+      backdrop-filter: blur(10px);
+    }
 
-  .names h1 {
-    font-size: 2.6rem;
-  }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(0, 0, 0, 0.2);
+    }
 
-  .and {
-    font-size: 1.8rem;
-  }
+    .scroll-indicator {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #777;
+    }
 
-  .details {
-    font-size: 1rem;
-  }
+    .scroll-indicator i {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 1.2rem;
+      animation: bounce 1.8s infinite;
+    }
 
-  .rsvp-btn {
-    width: 100%;
-    padding: 14px 0;
-    font-size: 0.95rem;
-  }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(3px); }
+      60% { transform: translateY(1px); }
+    }
 
-  .border-accent {
-    width: 40px;
-    height: 40px;
-  }
-}
+    /* SECTIONS */
 
-</style>
+    .section {
+      padding: 5rem 0;
+      background: linear-gradient(180deg, rgba(255, 246, 236, 0.8), rgba(245, 235, 224, 1));
+    }
+
+    .section-alt {
+      background: var(--bg-alt);
+    }
+
+    @media (min-width: 768px) {
+      .section {
+        padding: 6rem 0;
+      }
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-subtitle {
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 0.98rem;
+      color: var(--text-soft);
+    }
+
+    /* INVITATION TEXT */
+
+    .invitation-card {
+      background: #fff;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      padding: 2.7rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .invitation-card::before,
+    .invitation-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      border: 1px solid rgba(196, 124, 94, 0.18);
+    }
+
+    .invitation-card::before {
+      inset: 14px;
+    }
+
+    .invitation-card::after {
+      inset: 8px;
+      border-style: dashed;
+      opacity: 0.55;
+    }
+
+    .invitation-inner {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .invitation-line {
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-soft);
+    }
+
+    .invitation-line strong {
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .invitation-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2.4rem, 4vw, 3rem);
+      margin: 1.2rem 0;
+    }
+
+    .invitation-divider {
+      width: 80px;
+      height: 1px;
+      margin: 1.2rem auto;
+      background-image: linear-gradient(90deg, transparent, rgba(196, 124, 94, 0.9), transparent);
+      position: relative;
+    }
+
+    .invitation-divider::before {
+      content: "\f004";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      font-size: 0.65rem;
+      color: var(--accent);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 0 0.3rem;
+    }
+
+    .invitation-verse {
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #7a6a5b;
+      margin-top: 1.2rem;
+    }
+
+    /* DETAILS GRID */
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .details-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      padding: 2.2rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at top right, rgba(244, 216, 196, 0.6), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.6rem;
+    }
+
+    .card-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .card-label {
+      min-width: 80px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #8a7c70;
+    }
+
+    .card-value {
+      font-size: 0.98rem;
+      font-weight: 500;
+    }
+
+    .card-note {
+      margin-top: 1.4rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+    }
+
+    .chip {
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 0.25rem 0.8rem;
+      font-size: 0.78rem;
+      background: rgba(255, 255, 255, 0.85);
+      color: #5e5145;
+    }
+
+    .map {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      margin-top: 1.2rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .map iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+      height: 260px;
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      max-width: 720px;
+      margin: 0 auto;
+      border-left: 1px solid rgba(0, 0, 0, 0.14);
+      padding-left: 1.6rem;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -9px;
+      top: 0.35rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 6px rgba(196, 124, 94, 0.12);
+    }
+
+    .timeline-time {
+      font-size: 0.88rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #8a7c70;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-text {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+    }
+
+    /* RSVP SECTION */
+
+    .rsvp-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rsvp-section::before,
+    .rsvp-section::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(239, 211, 196, 0.65), transparent 65%);
+      pointer-events: none;
+    }
+
+    .rsvp-section::before {
+      width: 420px;
+      height: 420px;
+      top: -140px;
+      left: -120px;
+    }
+
+    .rsvp-section::after {
+      width: 360px;
+      height: 360px;
+      bottom: -120px;
+      right: -80px;
+    }
+
+    .rsvp-card {
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      padding: 2.4rem 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .rsvp-deadline {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.7rem;
+    }
+
+    .rsvp-text {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 520px;
+      margin: 0.3rem auto 1.8rem;
+    }
+
+    .rsvp-note {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #8a7c70;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      padding: 2.5rem 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.88rem;
+      color: #8c7e70;
+      background: #f0e2d4;
+    }
+
+    .footer-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-line {
+      max-width: 360px;
+      margin: 0 auto 0.6rem;
+    }
+
+    /* REVEAL ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
+<body>
 
-<body class="romantic">
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="hero-card reveal">
+        <div class="hero-header">Together with their families</div>
+        <div class="hero-names">
+          Karen Chrisele
+          <span class="ampersand">&amp;</span>
+          Ken Bryce
+        </div>
+        <div class="hero-subtitle">Joyfully invite you to celebrate their wedding</div>
 
-<div class="background-shapes" id="bgShapes"></div>
+        <div class="hero-details">
+          <div class="hero-detail">Saturday · April 11, 2026</div>
+          <div class="hero-detail">4:30 in the afternoon</div>
+          <div class="hero-detail">Chateau de Busay Inn & Restaurant</div>
+        </div>
 
-<div class="envelope-wrapper">
-  <div class="envelope">
-    <div class="flap"></div>
-  </div>
-</div>
+        <p class="hero-text">
+          Your presence would mean the world as we exchange vows and begin our next chapter together.
+          <br />
+          <strong>Please confirm your attendance using the link below.</strong>
+        </p>
 
-<div class="invitation">
+        <div class="btn-row">
+          <!-- Replace YOUR_GOOGLE_FORM_ID with your actual Google Form ID -->
+          <a 
+             target="_blank" rel="noopener" 
+             id="rsvpBtn"
+             class="btn btn-primary">
+            Confirm Attendance
+          </a>
+          <a href="#details" class="btn btn-outline">
+            View Details
+          </a>
+        </div>
 
-  <div class="border-accent border-top-left"></div>
-  <div class="border-accent border-top-right"></div>
-  <div class="border-accent border-bottom-left"></div>
-  <div class="border-accent border-bottom-right"></div>
+        <div class="scroll-indicator">
+          Scroll to explore
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <h4>YOU ARE CORDIALLY INVITED TO THE WEDDING OF</h4>
+  <!-- INVITATION TEXT -->
+  <main>
+    <section class="section" id="details">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-tag">The Invitation</div>
+          <h2 class="section-title">With love and gratitude</h2>
+          <p class="section-subtitle">
+            We are delighted to share this day with the people who have shaped our story.
+          </p>
+        </div>
 
-  <div class="names">
-    <h1>Karen Chrisele</h1>
-    <div class="and">and</div>
-    <h1>Ken Bryce</h1>
-  </div>
+        <div class="invitation-card reveal">
+          <div class="invitation-inner">
+            <p class="invitation-line">
+              Together with their families,
+            </p>
+            <p class="invitation-line">
+              <strong>Karen Chrisele Bioy</strong> and <strong>Ken Bryce Tagimacruz</strong>
+            </p>
 
-  <div class="details">
-    SATURDAY,<br>
-    April 11, 2026<br><br>
-    Chateau de Busay Inn & Restaurant
-  </div>
+            <div class="invitation-names">
+              Karen &amp; Ken
+            </div>
 
-  <div class="rsvp-section">
-    <a class="rsvp-btn" id="rsvpBtn">Confirm Attendance</a>
-    <div class="guest-name" id="guestName"></div>
-  </div>
+            <p class="invitation-line">
+              invite you to join them as they exchange vows
+              <br />
+              and celebrate the beginning of their married life.
+            </p>
 
-</div>
+            <div class="invitation-divider"></div>
 
-<script>
-// Falling shapes
-const container = document.getElementById('bgShapes');
-for (let i = 0; i < 25; i++) {
-  const s = document.createElement('div');
-  s.classList.add('shape');
-  s.style.left = Math.random() * 100 + 'vw';
-  s.style.animationDuration = (6 + Math.random() * 6) + 's';
-  container.appendChild(s);
-}
+            <p class="invitation-line">
+              Saturday, 11th of April<br />
+              2026<br />
+              at half past four in the afternoon
+            </p>
+            <p class="invitation-line">
+              Chateau de Busay Inn & Restaurant<br />
+              Lower Busay Nivel Hills, Cebu Transcentral · Cebu City
+            </p>
 
-// URL Params
-const params = new URLSearchParams(window.location.search);
-const guest = params.get('name');
-const firstName = params.get('firstname') || "";
-const lastName = params.get('lastname') || "";
+            <p class="invitation-verse">
+              “It is not how similar we are that makes us perfect for each other,<br />
+              but how beautifully our differences fit together.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-const guestDisplay = document.getElementById('guestName');
-const btn = document.getElementById('rsvpBtn');
+    <!-- DETAILS / VENUE / SCHEDULE -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-tag">The Day</div>
+          <h2 class="section-title">Details &amp; celebration</h2>
+          <p class="section-subtitle">
+            From the ceremony to the last dance, here’s everything you need to know to enjoy the day with us.
+          </p>
+        </div>
 
-if (guest) {
-  guestDisplay.textContent = "Reserved for: " + decodeURIComponent(guest);
-}
+        <div class="details-grid">
+          <!-- Left: Ceremony & Reception -->
+          <article class="card reveal">
+            <div class="card-inner">
+              <h3 class="card-title">Ceremony &amp; Reception</h3>
+              <div class="card-subtitle">All in one place</div>
 
-btn.addEventListener('click', () => {
-  const fullName = encodeURIComponent(firstName + " " + lastName);
-  window.open(
-    "https://docs.google.com/forms/d/e/1FAIpQLSd19hEncYpadlG_vdG9p6oFmklRPb7kHfdRtUbmRVMbH154TA/viewform?usp=pp_url&entry.1460024325=" 
-    + fullName
-  );
-});
-</script>
+              <div class="card-row">
+                <div class="card-label">Ceremony</div>
+                <div class="card-value">
+                  Archdiocesan Shrine of St. Thérèse of the Child Jesus<br />
+                  Lahug, Cebu City, Cebu<br />
+                </div>
+              </div>
 
+              <div class="card-row">
+                <div class="card-label">Reception</div>
+                <div class="card-value">
+                  Chateau de Busay Inn & Restaurant<br />
+                  Lower Busay Nivel Hills, Cebu Transcentral<br />
+                  Cebu City, 6000 Cebu
+                </div>
+              </div>
+
+              <div class="card-row">
+                <div class="card-label">Schedule</div>
+                <div class="card-value">
+                  2:00 PM – Ceremony<br />
+                  4:00 PM – Guest arrival<br />
+                  5:30 PM – Cocktail hour<br />
+                  7:00 PM – Dinner &amp; dancing
+                </div>
+              </div>
+
+              <div class="card-row">
+                <div class="card-label">Dress</div>
+                <div class="card-value">
+                  Cocktail attire<br />
+                  <span style="font-size: 0.9rem; color: var(--text-soft);">
+                    Think elegant, semi‑formal, and comfortable for an evening of dancing.
+                  </span>
+                </div>
+              </div>
+
+              <p class="card-note">
+                Valet parking is available at the venue. For guests staying nearby, we recommend arriving via rideshare or taxi.
+              </p>
+            </div>
+          </article>
+
+          <!-- Right: Map & Extras -->
+          <article class="card reveal">
+            <div class="card-inner">
+              <h3 class="card-title">Getting there</h3>
+              <div class="card-subtitle">Directions &amp; parking</div>
+
+              <p class="card-note" style="margin-top: 0;">
+                Nestled on a hill with a breathtaking view of lush green mountains and the cityscape beyond, Chateau de Busay Inn and Restaurant offers a rejuvenating break.
+              </p>
+
+              <div class="chip-row">
+                <span class="chip"><i class="fa-solid fa-car"></i>&nbsp; Parking on site</span>
+                <span class="chip"><i class="fa-solid fa-train-subway"></i>&nbsp;Taxi and Grab</span>
+                <span class="chip"><i class="fa-solid fa-taxi"></i>&nbsp; Vans (limited) included</span>
+              </div>
+
+              <div class="map">
+                <iframe
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4829.275009868514!2d123.87896447503603!3d10.362322589762393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99f4c07b55c0f%3A0x990d6bedbcf8c0c7!2sChateau%20de%20Busay%20Inn%20%26%20Restaurant!5e1!3m2!1sen!2sph!4v1772765221409!5m2!1sen!2sph"
+                  title="Map to The Glasshouse, New York">
+                </iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-tag">The Flow</div>
+          <h2 class="section-title">Evening timeline</h2>
+          <p class="section-subtitle">
+            We’ve planned a relaxed, joy‑filled celebration. Arrive a little early, stay as late as you like.
+          </p>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">4:00 PM</div>
+            <div class="timeline-title">Guest arrival &amp; welcome</div>
+            <div class="timeline-text">
+              Doors open and light refreshments will be served as you mingle and find your seat for the ceremony.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">4:30 PM</div>
+            <div class="timeline-title">Wedding ceremony</div>
+            <div class="timeline-text">
+              A short, heartfelt ceremony as we exchange vows surrounded by the people we love most.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">5:30 PM</div>
+            <div class="timeline-title">Cocktail hour</div>
+            <div class="timeline-text">
+              Drinks, hors d’oeuvres, and city views while we take photos with family and friends.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">7:00 PM</div>
+            <div class="timeline-title">Dinner &amp; dancing</div>
+            <div class="timeline-text">
+              A seated dinner followed by toasts, cake, and plenty of dancing. Bring your best moves.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-time">10:30 PM</div>
+            <div class="timeline-title">Sparkler send‑off</div>
+            <div class="timeline-text">
+              We’ll end the night with a sparkler send‑off and one last song before we say goodnight.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="section section-alt rsvp-section" id="rsvp">
+      <div class="container">
+        <div class="rsvp-card reveal">
+          <div class="rsvp-deadline">Kindly reply by July 15, 2026</div>
+          <h2 class="section-title" style="margin-bottom: 0.4rem;">Will you celebrate with us?</h2>
+          <p class="rsvp-text">
+            Please let us know if you will be able to attend by submitting the form below. This will help us finalize seating,
+            dinner selections, and transportation for the day.
+          </p>
+
+          <div class="btn-row" style="margin-bottom: 0.6rem;">
+            <!-- Same RSVP link as in the hero -->
+            <a 
+               rel="noopener"
+               id="rsvpBtn2"
+               class="btn btn-primary">
+              Confirm Attendance
+            </a>
+          </div>
+
+          <p class="rsvp-note">
+            If you have any dietary restrictions, song requests, or questions, you can include them directly in the RSVP form.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-names">Karen &amp; Ken</div>
+    <p class="footer-line">
+      We feel incredibly lucky to share this moment with you. Thank you for being part of our story.
+    </p>
+    <p style="font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 1rem;">
+      August 24, 2026 · New York City
+    </p>
+  </footer>
+
+  <script>
+    // Simple intersection observer to reveal elements on scroll
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    const params = new URLSearchParams(window.location.search);
+    const firstName = params.get('firstname') || "";
+    const lastName = params.get('lastname') || "";
+    const btn = document.getElementById('rsvpBtn');
+    const btn2 = document.getElementById('rsvpBtn2');
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    btn.addEventListener('click', () => {
+      console.log(JSON.stringify(params));
+      const fullName = encodeURIComponent(firstName + " " + lastName);
+      window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSd19hEncYpadlG_vdG9p6oFmklRPb7kHfdRtUbmRVMbH154TA/viewform?usp=pp_url&entry.1460024325=" 
+      + fullName
+      );
+    });
+
+    btn2.addEventListener('click', () => {
+      console.log(JSON.stringify(params));
+      const fullName = encodeURIComponent(firstName + " " + lastName);
+      window.open(
+      "https://docs.google.com/forms/d/e/1FAIpQLSd19hEncYpadlG_vdG9p6oFmklRPb7kHfdRtUbmRVMbH154TA/viewform?usp=pp_url&entry.1460024325=" 
+      + fullName
+      );
+    });
+  </script>
 </body>
 </html>
