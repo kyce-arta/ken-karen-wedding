@@ -1,1074 +1,1096 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>K &amp; K – Wedding Invitation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="You are invited to celebrate the wedding of Karen &amp; Ken." />
-
-  <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/5307/5307639.png">
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Optional Icons (for subtle details) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <style>
-    :root {
-      --bg: #f5ebe0;
-      --bg-alt: #fff9f3;
-      --accent: #EEAAC0;
-      --accent-soft: #e8c8b0;
-      --text-main: #2d3635;
-      --text-soft: #666;
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.16);
-      --radius-card: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1120px, 100%);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    
-    .c0{ background:#878793; color:#878793; }
-    .c1{ background:#D2DFEC; color:#D2DFEC; }
-    .c2{ background:#D4BAB5; color:#D4BAB5; }
-    .c3{ background:#C89387; color:#C89387; }
-    .c4{ background:#A6686B; color:#A6686B; }
-    .c6{ background:#784445; color:#784445; }
-
-    .palette{
-        display:flex;
-        gap:5px;
-    }
-
-    /* HERO */
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-    }
-
-    .palette_color{
-        width:35px;
-        height:35px;
-        border-radius:50%;
-        box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    }
-
-
-    .hero::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(120deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.45)),
-        url("https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=1600");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      z-index: -2;
-      transform: scale(1.02);
-      filter: saturate(1.1);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 55%),
-                        radial-gradient(circle at bottom right, rgba(211, 171, 145, 0.3), transparent 60%);
-      mix-blend-mode: soft-light;
-      z-index: -1;
-    }
-
-    .hero-inner {
-      padding: 4rem 1.5rem 5rem;
-    }
-
-    .hero-card {
-      backdrop-filter: blur(18px);
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.92), #EAD1D7);
-      border-radius: 32px;
-      padding: 3rem 2rem 2.5rem;
-      color: var(--text-main);
-      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
-      position: relative;
-      overflow: hidden;
-    }
-
-    @media (min-width: 768px) {
-      .hero-card {
-        padding: 3.5rem 4rem 3rem;
+  <head>
+    <meta charset="UTF-8" />
+    <title>K &amp; K – Wedding Invitation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="You are invited to celebrate the wedding of Karen &amp; Ken." />
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/5307/5307639.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Optional Icons (for subtle details) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+      :root {
+        --bg: #f5ebe0;
+        --bg-alt: #fff9f3;
+        --accent: #EEAAC0;
+        --accent-soft: #e8c8b0;
+        --text-main: #2d3635;
+        --text-soft: #666;
+        --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.16);
+        --radius-card: 24px;
       }
-    }
 
-    .hero-card::before,
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(237, 212, 192, 0.8), transparent 70%);
-      opacity: 0.54;
-      pointer-events: none;
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    .hero-card::before {
-      width: 320px;
-      height: 320px;
-      top: -160px;
-      left: -160px;
-    }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    .hero-card::after {
-      width: 420px;
-      height: 420px;
-      bottom: -210px;
-      right: -210px;
-    }
+      body {
+        margin: 0;
+        font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text-main);
+        -webkit-font-smoothing: antialiased;
+      }
 
-    .hero-header {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.35em;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 1.6rem;
-    }
+      img {
+        max-width: 100%;
+        display: block;
+      }
 
-    .hero-names {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(3.2rem, 5vw, 4.5rem);
-      line-height: 1.15;
-      margin-bottom: 1.2rem;
-    }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-    .ampersand {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.7em;
-      vertical-align: middle;
-      padding: 0 0.4em;
-      color: var(--accent);
-    }
+      .center-block {
+        text-align: center;
+        margin-bottom: 60px;
+      }
 
-    .hero-subtitle {
-      font-family: 'Playfair Display', serif;
-      font-weight: 500;
-      font-size: 1.1rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin-bottom: 2rem;
-    }
+      .role-title {
+        font-size: 13px;
+        letter-spacing: 2px;
+        color: #777;
+        margin-bottom: 10px;
+      }
 
-    .hero-details {
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      font-size: 0.9rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #474747;
-      margin-bottom: 2.2rem;
-    }
+      .name {
+        font-size: 18px;
+        margin: 3px 0;
+      }
 
-    @media (min-width: 640px) {
-      .hero-details {
-        flex-direction: row;
+      .columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+      }
+
+      .column {
+        text-align: center;
+      }
+
+      .column h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 24px;
+        margin-bottom: 25px;
+      }
+
+      .role {
+        margin-bottom: 25px;
+      }
+
+      @media(max-width:700px) {
+        .columns {
+          grid-template-columns: 1fr;
+          gap: 50px;
+        }
+      }
+
+      .container {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .c0 {
+        background: #878793;
+        color: #878793;
+      }
+
+      .c1 {
+        background: #D2DFEC;
+        color: #D2DFEC;
+      }
+
+      .c2 {
+        background: #D4BAB5;
+        color: #D4BAB5;
+      }
+
+      .c3 {
+        background: #C89387;
+        color: #C89387;
+      }
+
+      .c4 {
+        background: #A6686B;
+        color: #A6686B;
+      }
+
+      .c6 {
+        background: #784445;
+        color: #784445;
+      }
+
+      .palette {
+        display: flex;
+        gap: 5px;
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
         justify-content: center;
-        gap: 1.4rem;
+        text-align: center;
+        overflow: hidden;
       }
-    }
 
-    .hero-detail {
-      position: relative;
-      padding-inline: 1.4rem;
-      white-space: nowrap;
-    }
+      .palette_color {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
 
-    .hero-detail:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      right: -0.2rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1px;
-      height: 18px;
-      background: rgba(0, 0, 0, 0.18);
-    }
+      .hero::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(120deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.45)),
+          url("https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=1600");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        z-index: -2;
+        transform: scale(1.02);
+        filter: saturate(1.1);
+      }
 
-    .hero-text {
-      max-width: 540px;
-      margin: 0 auto 2.4rem;
-      font-size: 0.98rem;
-      color: #585858;
-    }
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 55%),
+          radial-gradient(circle at bottom right, rgba(211, 171, 145, 0.3), transparent 60%);
+        mix-blend-mode: soft-light;
+        z-index: -1;
+      }
 
-    .hero-text strong {
-      font-weight: 700;
-      color: #444;
-    }
+      .hero-inner {
+        padding: 4rem 1.5rem 5rem;
+      }
 
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
+      .hero-card {
+        backdrop-filter: blur(18px);
+        background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.92), #EAD1D7);
+        border-radius: 32px;
+        padding: 3rem 2rem 2.5rem;
+        color: var(--text-main);
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+        position: relative;
+        overflow: hidden;
+      }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.9rem 2.4rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease-out;
-      text-decoration: none;
-    }
+      @media (min-width: 768px) {
+        .hero-card {
+          padding: 3.5rem 4rem 3rem;
+        }
+      }
 
-    .btn-primary {
-      background-image: linear-gradient(135deg, #EEAAC0);
-      color: #fff;
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
-    }
+      .hero-card::before,
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(237, 212, 192, 0.8), transparent 70%);
+        opacity: 0.54;
+        pointer-events: none;
+      }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
-      filter: brightness(1.03);
-    }
+      .hero-card::before {
+        width: 320px;
+        height: 320px;
+        top: -160px;
+        left: -160px;
+      }
 
-    .btn-outline {
-      background: transparent;
-      border-color: rgba(0, 0, 0, 0.16);
-      color: #444;
-      backdrop-filter: blur(10px);
-    }
+      .hero-card::after {
+        width: 420px;
+        height: 420px;
+        bottom: -210px;
+        right: -210px;
+      }
 
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.7);
-      border-color: rgba(0, 0, 0, 0.2);
-    }
+      .hero-header {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.35em;
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: 1.6rem;
+      }
 
-    .scroll-indicator {
-      margin-top: 1rem;
-      font-size: 0.75rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: #777;
-    }
+      .hero-names {
+        font-family: 'Great Vibes', cursive;
+        font-size: clamp(3.2rem, 5vw, 4.5rem);
+        line-height: 1.15;
+        margin-bottom: 1.2rem;
+      }
 
-    .scroll-indicator i {
-      display: block;
-      margin-top: 0.4rem;
-      font-size: 1.2rem;
-      animation: bounce 1.8s infinite;
-    }
+      .ampersand {
+        font-family: 'Playfair Display', serif;
+        font-size: 0.7em;
+        vertical-align: middle;
+        padding: 0 0.4em;
+        color: var(--accent);
+      }
 
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(3px); }
-      60% { transform: translateY(1px); }
-    }
+      .hero-subtitle {
+        font-family: 'Playfair Display', serif;
+        font-weight: 500;
+        font-size: 1.1rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-soft);
+        margin-bottom: 2rem;
+      }
 
-    /* SECTIONS */
+      .hero-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #474747;
+        margin-bottom: 2.2rem;
+      }
 
-    .section {
-      padding: 5rem 0;
-      background: linear-gradient(180deg, rgba(255, 246, 236, 0.8), #EAD1D7);
-    }
+      @media (min-width: 640px) {
+        .hero-details {
+          flex-direction: row;
+          justify-content: center;
+          gap: 1.4rem;
+        }
+      }
 
-    .section-alt {
-      background: #EAD1D7;
-    }
+      .hero-detail {
+        position: relative;
+        padding-inline: 1.4rem;
+        white-space: nowrap;
+      }
 
-    @media (min-width: 768px) {
+      .hero-detail:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -0.2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 18px;
+        background: rgba(0, 0, 0, 0.18);
+      }
+
+      .hero-text {
+        max-width: 540px;
+        margin: 0 auto 2.4rem;
+        font-size: 0.98rem;
+        color: #585858;
+      }
+
+      .hero-text strong {
+        font-weight: 700;
+        color: #444;
+      }
+
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 2.4rem;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease-out;
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background-image: linear-gradient(135deg, #EEAAC0);
+        color: #fff;
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.3);
+        filter: brightness(1.03);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border-color: rgba(0, 0, 0, 0.16);
+        color: #444;
+        backdrop-filter: blur(10px);
+      }
+
+      .btn-outline:hover {
+        background: rgba(255, 255, 255, 0.7);
+        border-color: rgba(0, 0, 0, 0.2);
+      }
+
+      .scroll-indicator {
+        margin-top: 1rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #777;
+      }
+
+      .scroll-indicator i {
+        display: block;
+        margin-top: 0.4rem;
+        font-size: 1.2rem;
+        animation: bounce 1.8s infinite;
+      }
+
+      @keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+
+        40% {
+          transform: translateY(3px);
+        }
+
+        60% {
+          transform: translateY(1px);
+        }
+      }
+
+      /* SECTIONS */
       .section {
-        padding: 6rem 0;
+        padding: 5rem 0;
+        background: linear-gradient(180deg, rgba(255, 246, 236, 0.8), #EAD1D7);
       }
-    }
 
-    .section-heading {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
+      .section-alt {
+        background: #EAD1D7;
+      }
 
-    .section-tag {
-      font-size: 0.8rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.7rem;
-    }
+      @media (min-width: 768px) {
+        .section {
+          padding: 6rem 0;
+        }
+      }
 
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.3rem);
-      margin-bottom: 0.6rem;
-    }
+      .section-heading {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
 
-    .section-subtitle {
-      max-width: 520px;
-      margin: 0 auto;
-      font-size: 0.98rem;
-      color: var(--text-soft);
-    }
+      .section-tag {
+        font-size: 0.8rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 0.7rem;
+      }
 
-    /* INVITATION TEXT */
+      .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.8rem, 3vw, 2.3rem);
+        margin-bottom: 0.6rem;
+      }
 
-    .invitation-card {
-      background: #fff;
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-soft);
-      padding: 2.7rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+      .section-subtitle {
+        max-width: 520px;
+        margin: 0 auto;
+        font-size: 0.98rem;
+        color: var(--text-soft);
+      }
 
-    .invitation-card::before,
-    .invitation-card::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      border: 1px solid rgba(196, 124, 94, 0.18);
-    }
+      /* INVITATION TEXT */
+      .invitation-card {
+        background: #fff;
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-soft);
+        padding: 2.7rem 2rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-    .invitation-card::before {
-      inset: 14px;
-    }
+      .invitation-card::before,
+      .invitation-card::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        border: 1px solid rgba(196, 124, 94, 0.18);
+      }
 
-    .invitation-card::after {
-      inset: 8px;
-      border-style: dashed;
-      opacity: 0.55;
-    }
+      .invitation-card::before {
+        inset: 14px;
+      }
 
-    .invitation-inner {
-      position: relative;
-      max-width: 640px;
-      margin: 0 auto;
-    }
+      .invitation-card::after {
+        inset: 8px;
+        border-style: dashed;
+        opacity: 0.55;
+      }
 
-    .invitation-line {
-      font-size: 0.95rem;
-      margin-bottom: 0.6rem;
-      color: var(--text-soft);
-    }
+      .invitation-inner {
+        position: relative;
+        max-width: 640px;
+        margin: 0 auto;
+      }
 
-    .invitation-line strong {
-      font-weight: 700;
-      color: var(--text-main);
-    }
+      .invitation-line {
+        font-size: 0.95rem;
+        margin-bottom: 0.6rem;
+        color: var(--text-soft);
+      }
 
-    .invitation-names {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(2.4rem, 4vw, 3rem);
-      margin: 1.2rem 0;
-    }
+      .invitation-line strong {
+        font-weight: 700;
+        color: var(--text-main);
+      }
 
-    .invitation-divider {
-      width: 80px;
-      height: 1px;
-      margin: 1.2rem auto;
-      background-image: linear-gradient(90deg, transparent, rgba(196, 124, 94, 0.9), transparent);
-      position: relative;
-    }
+      .invitation-names {
+        font-family: 'Great Vibes', cursive;
+        font-size: clamp(2.4rem, 4vw, 3rem);
+        margin: 1.2rem 0;
+      }
 
-    .invitation-divider::before {
-      content: "\f004";
-      font-family: "Font Awesome 6 Free";
-      font-weight: 900;
-      font-size: 0.65rem;
-      color: var(--accent);
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: #fff;
-      padding: 0 0.3rem;
-    }
+      .invitation-divider {
+        width: 80px;
+        height: 1px;
+        margin: 1.2rem auto;
+        background-image: linear-gradient(90deg, transparent, rgba(196, 124, 94, 0.9), transparent);
+        position: relative;
+      }
 
-    .invitation-verse {
-      font-style: italic;
-      font-size: 0.95rem;
-      color: #7a6a5b;
-      margin-top: 1.2rem;
-    }
+      .invitation-divider::before {
+        content: "\f004";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 0.65rem;
+        color: var(--accent);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        padding: 0 0.3rem;
+      }
 
-    /* DETAILS GRID */
+      .invitation-verse {
+        font-style: italic;
+        font-size: 0.95rem;
+        color: #7a6a5b;
+        margin-top: 1.2rem;
+      }
 
-    .details-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 880px) {
+      /* DETAILS GRID */
       .details-grid {
-        grid-template-columns: minmax(0, 1fr);
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: 2rem;
+        align-items: flex-start;
       }
-    }
 
-    .card {
-      background: #fff;
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-soft);
-      padding: 2.2rem 2rem;
-      position: relative;
-      overflow: hidden;
-    }
+      @media (max-width: 880px) {
+        .details-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle at top right, rgba(244, 216, 196, 0.6), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
-    }
+      .card {
+        background: #fff;
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-soft);
+        padding: 2.2rem 2rem;
+        position: relative;
+        overflow: hidden;
+      }
 
-    .card-inner {
-      position: relative;
-      z-index: 1;
-    }
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(circle at top right, rgba(244, 216, 196, 0.6), transparent 55%);
+        opacity: 0.8;
+        pointer-events: none;
+      }
 
-    .card-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      margin-bottom: 0.2rem;
-    }
+      .card-inner {
+        position: relative;
+        z-index: 1;
+      }
 
-    .card-subtitle {
-      font-size: 0.9rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1.6rem;
-    }
+      .card-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+      }
 
-    .card-row {
-      display: flex;
-      gap: 0.75rem;
-      margin-bottom: 0.9rem;
-    }
+      .card-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 1.6rem;
+      }
 
-    .card-label {
-      min-width: 80px;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #8a7c70;
-    }
+      .card-row {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 0.9rem;
+      }
 
-    .card-value {
-      font-size: 0.98rem;
-      font-weight: 500;
-    }
+      .card-label {
+        min-width: 80px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: #8a7c70;
+      }
 
-    .card-note {
-      margin-top: 1.4rem;
-      font-size: 0.9rem;
-      color: var(--text-soft);
-    }
+      .card-value {
+        font-size: 0.98rem;
+        font-weight: 500;
+      }
 
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.6rem;
-    }
+      .card-note {
+        margin-top: 1.4rem;
+        font-size: 0.9rem;
+        color: var(--text-soft);
+      }
 
-    .chip {
-      border-radius: 999px;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 0.25rem 0.8rem;
-      font-size: 0.78rem;
-      background: rgba(255, 255, 255, 0.85);
-      color: #5e5145;
-    }
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.6rem;
+      }
 
-    .map {
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      margin-top: 1.2rem;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-    }
+      .chip {
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 0.25rem 0.8rem;
+        font-size: 0.78rem;
+        background: rgba(255, 255, 255, 0.85);
+        color: #5e5145;
+      }
 
-    .map iframe {
-      display: block;
-      width: 100%;
-      border: 0;
-      height: 260px;
-    }
+      .map {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        margin-top: 1.2rem;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      }
 
-    /* TIMELINE */
+      .map iframe {
+        display: block;
+        width: 100%;
+        border: 0;
+        height: 260px;
+      }
 
-    .timeline {
-      max-width: 720px;
-      margin: 0 auto;
-      border-left: 1px solid rgba(0, 0, 0, 0.14);
-      padding-left: 1.6rem;
-      position: relative;
-    }
+      /* TIMELINE */
+      .timeline {
+        max-width: 720px;
+        margin: 0 auto;
+        border-left: 1px solid rgba(0, 0, 0, 0.14);
+        padding-left: 1.6rem;
+        position: relative;
+      }
 
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: -6px;
-      top: 0;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: -6px;
+        top: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
 
-    }
+      .timeline-item {
+        position: relative;
+        padding-bottom: 1.8rem;
+        margin-bottom: 1.8rem;
+      }
 
-    .timeline-item {
-      position: relative;
-      padding-bottom: 1.8rem;
-      margin-bottom: 1.8rem;
-    }
+      .timeline-item:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
 
-    .timeline-item:last-child {
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
+      .timeline-dot {
+        position: absolute;
+        left: -33px;
+        top: 0.35rem;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid var(--accent);
+        box-shadow: 0 0 0 6px rgba(196, 124, 94, 0.12);
+      }
 
-    .timeline-dot {
-      position: absolute;
-      left: -33px;
-      top: 0.35rem;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #fff;
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 0 6px rgba(196, 124, 94, 0.12);
-    }
+      .timeline-time {
+        font-size: 0.88rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #8a7c70;
+        margin-bottom: 0.3rem;
+      }
 
-    .timeline-time {
-      font-size: 0.88rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #8a7c70;
-      margin-bottom: 0.3rem;
-    }
+      .timeline-title {
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
 
-    .timeline-title {
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-    }
+      .timeline-text {
+        font-size: 0.95rem;
+        color: var(--text-soft);
+      }
 
-    .timeline-text {
-      font-size: 0.95rem;
-      color: var(--text-soft);
-    }
+      /* RSVP SECTION */
+      .rsvp-section {
+        position: relative;
+        overflow: hidden;
+      }
 
-    /* RSVP SECTION */
+      .rsvp-section::before,
+      .rsvp-section::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(239, 211, 196, 0.65), transparent 65%);
+        pointer-events: none;
+      }
 
-    .rsvp-section {
-      position: relative;
-      overflow: hidden;
-    }
+      .rsvp-section::before {
+        width: 420px;
+        height: 420px;
+        top: -140px;
+        left: -120px;
+      }
 
-    .rsvp-section::before,
-    .rsvp-section::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(239, 211, 196, 0.65), transparent 65%);
-      pointer-events: none;
-    }
+      .rsvp-section::after {
+        width: 360px;
+        height: 360px;
+        bottom: -120px;
+        right: -80px;
+      }
 
-    .rsvp-section::before {
-      width: 420px;
-      height: 420px;
-      top: -140px;
-      left: -120px;
-    }
+      .rsvp-card {
+        background: rgba(255, 255, 255, 0.94);
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-soft);
+        padding: 2.4rem 2rem;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
 
-    .rsvp-section::after {
-      width: 360px;
-      height: 360px;
-      bottom: -120px;
-      right: -80px;
-    }
+      .rsvp-deadline {
+        font-size: 0.9rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.7rem;
+      }
 
-    .rsvp-card {
-      background: rgba(255, 255, 255, 0.94);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-soft);
-      padding: 2.4rem 2rem;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
+      .rsvp-text {
+        font-size: 0.98rem;
+        color: var(--text-soft);
+        max-width: 520px;
+        margin: 0.3rem auto 1.8rem;
+      }
 
-    .rsvp-deadline {
-      font-size: 0.9rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.7rem;
-    }
+      .rsvp-note {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: #8a7c70;
+      }
 
-    .rsvp-text {
-      font-size: 0.98rem;
-      color: var(--text-soft);
-      max-width: 520px;
-      margin: 0.3rem auto 1.8rem;
-    }
+      /* FOOTER */
+      .footer {
+        padding: 2.5rem 1.5rem 2rem;
+        text-align: center;
+        font-size: 0.88rem;
+        color: #8c7e70;
+        background: #f0e2d4;
+      }
 
-    .rsvp-note {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      color: #8a7c70;
-    }
+      .footer-names {
+        font-family: 'Great Vibes', cursive;
+        font-size: 1.5rem;
+        margin-bottom: 0.4rem;
+      }
 
-    /* FOOTER */
+      .footer-line {
+        max-width: 360px;
+        margin: 0 auto 0.6rem;
+      }
 
-    .footer {
-      padding: 2.5rem 1.5rem 2rem;
-      text-align: center;
-      font-size: 0.88rem;
-      color: #8c7e70;
-      background: #f0e2d4;
-    }
+      /* REVEAL ANIMATIONS */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+      }
 
-    .footer-names {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.5rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .footer-line {
-      max-width: 360px;
-      margin: 0 auto 0.6rem;
-    }
-
-    /* REVEAL ANIMATIONS */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container hero-inner">
-      <div class="hero-card reveal">
-        <div class="hero-header">Together with their families</div>
-        <div class="hero-names">
-          Ken Bryce
-          <span class="ampersand">&amp;</span>
-          Karen Chrisele
-        </div>
-        <div class="hero-subtitle">Joyfully invite you to celebrate their wedding</div>
-
-        <div class="hero-details">
-          <div class="hero-detail">Saturday · April 11, 2026</div>
-          <div class="hero-detail">2:00 in the afternoon</div>
-          <div class="hero-detail">Chateau de Busay Inn & Restaurant</div>
-        </div>
-
-        <p class="hero-text">
-          Your presence would mean the world as we exchange vows and begin our next chapter together.
-          <br />
-          <strong>Please confirm your attendance using the link below.</strong>
-        </p>
-
-        <div class="btn-row">
-          <!-- Replace YOUR_GOOGLE_FORM_ID with your actual Google Form ID -->
-          <a 
-             target="_blank" rel="noopener" 
-             id="rsvpBtn"
-             class="btn btn-primary">
-            Confirm Attendance
-          </a>
-          <a href="#details" class="btn btn-outline">
-            View Details
-          </a>
-        </div>
-
-        <div class="scroll-indicator">
-          Scroll to explore
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- INVITATION TEXT -->
-  <main>
-    <section class="section" id="details">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="section-tag">The Invitation</div>
-          <h2 class="section-title">With love and gratitude</h2>
-          <p class="section-subtitle">
-            We are delighted to share this day with the people who have shaped our story.
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="container hero-inner">
+        <div class="hero-card reveal">
+          <div class="hero-header">Together with their families</div>
+          <div class="hero-names"> Ken Bryce <span class="ampersand">&amp;</span> Karen Chrisele </div>
+          <div class="hero-subtitle">Joyfully invite you to celebrate their wedding</div>
+          <div class="hero-details">
+            <div class="hero-detail">Saturday · April 11, 2026</div>
+            <div class="hero-detail">2:00 in the afternoon</div>
+            <div class="hero-detail">Chateau de Busay Inn & Restaurant</div>
+          </div>
+          <p class="hero-text"> Your presence would mean the world as we exchange vows and begin our next chapter together. <br />
+            <strong>Please confirm your attendance using the link below.</strong>
           </p>
-        </div>
-
-        <div class="invitation-card reveal">
-          <div class="invitation-inner">
-            <p class="invitation-line">
-              Together with their families,
-            </p>
-            <p class="invitation-line">
-               <strong>Ken Bryce Tagimacruz</strong> and <strong>Karen Chrisele Bioy</strong> 
-            </p>
-
-            <div class="invitation-names">
-               Ken &amp; Karen 
-            </div>
-
-            <p class="invitation-line">
-              invite you to join them as they exchange vows
-              <br />
-              and celebrate the beginning of their married life.
-            </p>
-
-            <div class="invitation-divider"></div>
-
-            <p class="invitation-line">
-              Saturday, 11th of April<br />
-              2026<br />
-              at half past four in the afternoon
-            </p>
-            <p class="invitation-line">
-              Archdiocesan Shrine of St. Thérèse of the Child Jesus<br />
-                  Lahug, Cebu City, Cebu
-            </p>
-
-            <p class="invitation-verse">
-              “It is not how similar we are that makes us perfect for each other,<br />
-              but how beautifully our differences fit together.”
-            </p>
+          <div class="btn-row">
+            <!-- Replace YOUR_GOOGLE_FORM_ID with your actual Google Form ID -->
+            <a target="_blank" rel="noopener" id="rsvpBtn" class="btn btn-primary"> Confirm Attendance </a>
+            <a href="#details" class="btn btn-outline"> View Details </a>
+          </div>
+          <div class="scroll-indicator"> Scroll to explore <i class="fa-solid fa-chevron-down"></i>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- DETAILS / VENUE / SCHEDULE -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="section-tag">The Day</div>
-          <h2 class="section-title">Details &amp; celebration</h2>
-          <p class="section-subtitle">
-            From the ceremony to the last dance, here’s everything you need to know to enjoy the day with us.
-          </p>
+    </header>
+    <!-- INVITATION TEXT -->
+    <main>
+      <section class="section" id="details">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div class="section-tag">The Invitation</div>
+            <h2 class="section-title">With love and gratitude</h2>
+            <p class="section-subtitle"> We are delighted to share this day with the people who have shaped our story. </p>
+          </div>
+          <div class="invitation-card reveal">
+            <div class="invitation-inner">
+              <p class="invitation-line"> Together with their families, </p>
+              <p class="invitation-line">
+                <strong>Ken Bryce Tagimacruz</strong> and <strong>Karen Chrisele Bioy</strong>
+              </p>
+              <div class="invitation-names"> Ken &amp; Karen </div>
+              <p class="invitation-line"> invite you to join them as they exchange vows <br /> and celebrate the beginning of their married life. </p>
+              <div class="invitation-divider"></div>
+              <p class="invitation-line"> Saturday, 11th of April <br /> 2026 <br /> at half past four in the afternoon </p>
+              <p class="invitation-line"> Archdiocesan Shrine of St. Thérèse of the Child Jesus <br /> Lahug, Cebu City, Cebu </p>
+              <p class="invitation-verse"> “It is not how similar we are that makes us perfect for each other, <br /> but how beautifully our differences fit together.” </p>
+            </div>
+          </div>
         </div>
-
-        <div class="details-grid">
-          <!-- Left: Ceremony & Reception -->
-          <article class="card reveal">
-            <div class="card-inner">
-              <h3 class="card-title">Ceremony &amp; Reception</h3>
-              <div class="card-subtitle">All in Cebu City</div>
-
-              <div class="card-row">
-                <div class="card-label">Ceremony</div>
-                <div class="card-value">
-                  Archdiocesan Shrine of St. Thérèse of the Child Jesus<br />
-                  Lahug, Cebu City, Cebu<br />
+      </section>
+      <!-- DETAILS / VENUE / SCHEDULE -->
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div class="section-tag">The Day</div>
+            <h2 class="section-title">Details &amp; celebration</h2>
+            <p class="section-subtitle"> From the ceremony to the last dance, here’s everything you need to know to enjoy the day with us. </p>
+          </div>
+          <div class="details-grid">
+            <!-- Left: Ceremony & Reception -->
+            <article class="card reveal">
+              <div class="card-inner">
+                <h3 class="card-title">Ceremony &amp; Reception</h3>
+                <div class="card-subtitle">All in Cebu City</div>
+                <div class="card-row">
+                  <div class="card-label">Ceremony</div>
+                  <div class="card-value"> Archdiocesan Shrine of St. Thérèse of the Child Jesus <br /> Lahug, Cebu City, Cebu <br />
+                  </div>
                 </div>
-              </div>
-
-              <div class="card-row">
-                <div class="card-label">Reception</div>
-                <div class="card-value">
-                  Chateau de Busay Inn & Restaurant<br />
-                  Lower Busay Nivel Hills, Cebu Transcentral<br />
-                  Cebu City, 6000 Cebu
+                <div class="card-row">
+                  <div class="card-label">Reception</div>
+                  <div class="card-value"> Chateau de Busay Inn & Restaurant <br /> Lower Busay Nivel Hills, Cebu Transcentral <br /> Cebu City, 6000 Cebu </div>
                 </div>
-              </div>
-
-              <div class="card-row">
-                <div class="card-label">Schedule</div>
-                <div class="card-value">
-                  2:00 PM – Ceremony<br />
-                  5:00 PM – Reception<br />
-                  5:30 PM – Cocktail hour<br />
-                  7:00 PM – Dinner &amp; dancing
+                <div class="card-row">
+                  <div class="card-label">Schedule</div>
+                  <div class="card-value"> 2:00 PM – Ceremony <br /> 5:00 PM – Reception <br /> 6:30 PM – Dinner <br /> 8:30 PM – Closing </div>
                 </div>
-              </div>
-
-              <div class="card-row">
-                <div class="card-label">Dress Code</div>
-                <div class="card-value">
-                  Cocktail attire<br />
-                  <span style="font-size: 0.9rem; color: var(--text-soft);">
-                    Think elegant, semi‑formal, and comfortable for an evening of dancing.
-                  </span>
+                <div class="card-row">
+                  <div class="card-label">Dress Code</div>
+                  <div class="card-value"> Cocktail attire <br />
+                    <span style="font-size: 0.9rem; color: var(--text-soft);"> Think elegant, semi‑formal, and comfortable for an evening of dancing. </span>
+                  </div>
                 </div>
-              </div>
-
-              <div class="card-row">
-                <div class="card-label">Color Guide</div>
-                <div class="card-value">
-                 <div class="palette">
-                    <div class="palette_color c0"></div>
-                    <div class="palette_color c1"></div>
-                    <div class="palette_color c2"></div>
-                    <div class="palette_color c3"></div>
-                    <div class="palette_color c4"></div>
-                    <div class="palette_color c6"></div>
+                <div class="card-row">
+                  <div class="card-label">Color Guide</div>
+                  <div class="card-value">
+                    <div class="palette">
+                      <div class="palette_color c0"></div>
+                      <div class="palette_color c1"></div>
+                      <div class="palette_color c2"></div>
+                      <div class="palette_color c3"></div>
+                      <div class="palette_color c4"></div>
+                      <div class="palette_color c6"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <p class="card-note">
-                Valet parking is available at the venue. For guests staying nearby, we recommend arriving via rideshare or taxi.
-              </p>
-            </div>
-          </article>
-
-          <!-- Right: Map & Extras -->
-          <article class="card reveal">
-            <div class="card-inner">
-              <h3 class="card-title">Getting there</h3>
-              <div class="card-subtitle">Directions &amp; parking</div>
-
-              <p class="card-note" style="margin-top: 0;">
-                Nestled on a hill with a breathtaking view of lush green mountains and the cityscape beyond, Chateau de Busay Inn and Restaurant offers a rejuvenating break.
-              </p>
-
-              <div class="chip-row">
-                <span class="chip"><i class="fa-solid fa-car"></i>&nbsp; Parking on site</span>
-                <span class="chip"><i class="fa-solid fa-train-subway"></i>&nbsp;Taxi and Grab</span>
-                <span class="chip"><i class="fa-solid fa-taxi"></i>&nbsp; Vans (limited) included</span>
+            </article>
+            <!-- Right: Map & Extras -->
+            <article class="card reveal">
+              <div class="card-inner">
+                <h3 class="card-title">Getting there</h3>
+                <div class="card-subtitle">Directions &amp; parking</div>
+                <p class="card-note" style="margin-top: 0;"> Nestled on a hill with a breathtaking view of lush green mountains and the cityscape beyond, Chateau de Busay Inn and Restaurant offers a rejuvenating break. </p>
+                <div class="chip-row">
+                  <span class="chip">
+                    <i class="fa-solid fa-car"></i>&nbsp; Parking on site </span>
+                  <span class="chip">
+                    <i class="fa-solid fa-train-subway"></i>&nbsp;Taxi and Grab </span>
+                  <span class="chip">
+                    <i class="fa-solid fa-taxi"></i>&nbsp; Vans (limited) included </span>
+                </div>
+                <div class="map">
+                  <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4829.275009868514!2d123.87896447503603!3d10.362322589762393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99f4c07b55c0f%3A0x990d6bedbcf8c0c7!2sChateau%20de%20Busay%20Inn%20%26%20Restaurant!5e1!3m2!1sen!2sph!4v1772765221409!5m2!1sen!2sph" title="Map to The Glasshouse, New York"></iframe>
+                </div>
               </div>
-
-              <div class="map">
-                <iframe
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4829.275009868514!2d123.87896447503603!3d10.362322589762393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99f4c07b55c0f%3A0x990d6bedbcf8c0c7!2sChateau%20de%20Busay%20Inn%20%26%20Restaurant!5e1!3m2!1sen!2sph!4v1772765221409!5m2!1sen!2sph"
-                  title="Map to The Glasshouse, New York">
-                </iframe>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div class="section-tag">The Entourage</div>
+            <h2 class="section-title">Wedding Entourage</h2>
+            <p class="section-subtitle">
+              <br/>
+              <!-- Parents -->
+            <div class="columns">
+            <div class="center-block column">
+              <h2 class="role-title">Groom</h2>
+              <div class="role-title">Parents</div>
+              <div class="name">Mr. Kenneth Tagimacruz</div>
+              <div class="name">Mrs. Nisa Socorro Tagimacruz</div>
+            </div>
+            <div class="center-block column">
+              <h2 class="role-title">Bride</h2>
+              <div class="role-title">Parents</div>
+              <div class="name">Mr. Ernesto Bioy</div>
+              <div class="name">Mrs. Elvira Bioy</div>
+            </div>
+          </div>
+            <!-- Principal Sponsors -->
+            <div class="center-block">
+              <div class="role-title">PRINCIPAL SPONSORS</div>
+              <div class="name">Cassius Villariasa <span class="ampersand">&amp;</span> Godiva Villariasa</div>
+              <div class="name">Humphrey Narvios <span class="ampersand">&amp;</span> Dolores Narvios</div>
+              <div class="name">Francisco Largo <span class="ampersand">&amp;</span> Gilda Mafnas</div>
+              <div class="name">Nixon Matulac <span class="ampersand">&amp;</span> Milagros Matulac</div>
+            </div>
+            <!-- Secondary Sponsors -->
+            <div class="center-block">
+              <div class="role-title">CANDLE SPONSORS</div>
+              <div class="name">Atty. Greg Winifredo Yu</div>
+              <div class="name">Atty. April Jansen-Yu</div>
+            </div>
+            <div class="center-block">
+              <div class="role-title">VEIL SPONSORS</div>
+              <div class="name">Fyl Brian Bayalas</div>
+              <div class="name">Maria Ydiza Arriba-Bayalas</div>
+            </div>
+            <div class="center-block">
+              <div class="role-title">CORD SPONSORS</div>
+              <div class="name">Atty. Jacob Bancale</div>
+              <div class="name">Ana Jane Bancale</div>
+            </div>
+            <!-- Bride & Groom sides -->
+            <div class="columns">
+              <!-- Groom Side -->
+              <div class="column">
+                <div class="role">
+                  <div class="role-title">BEST MAN</div>
+                  <div class="name">Ken Byron Tagimacruz</div>
+                </div>
+                <div class="role">
+                  <div class="role-title">GROOMSMEN</div>
+                  <div class="name">Khenneil Ng</div>
+                  <div class="name">Nico Monterona</div>
+                  <div class="name">Mark Christian Romanos</div>
+                  <div class="name">Sandonar Salamanca</div>
+                </div>
+                <div class="role">
+                  <div class="role-title">BEARERS</div>
+                  <div class="name">Kharll Bruce Tagimacruz</div>
+                  <div class="name">Zach Alexus Manugas</div>
+                  <div class="name">Cassius Marvin Villariasa</div>
+                </div>
+              </div>
+               <!-- Bride Side -->
+              <div class="column">
+                <div class="role">
+                  <div class="role-title">MAID OF HONOR</div>
+                  <div class="name">Lady Charmaine Bioy</div>
+                </div>
+                <div class="role">
+                  <div class="role-title">BRIDESMAIDS</div>
+                  <div class="name">Claudine Jansen</div>
+                  <div class="name">Vanessa Rhea Penecitos</div>
+                  <div class="name">Jelly Gotinga</div>
+                  <div class="name">Jayne Auza</div>
+                </div>
+                <div class="role">
+                  <div class="role-title">FLOWER GIRL</div>
+                  <div class="name">Kenise Eloisa Tagimacruz</div>
+                  <div class="name">Kathleen Kim Frances Tagimacruz</div>
+                  <div class="name">Judy Lyn Suralta</div>
+                </div>
               </div>
             </div>
-          </article>
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- TIMELINE -->
-    <section class="section">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="section-tag">The Flow</div>
-          <h2 class="section-title">Evening timeline</h2>
-          <p class="section-subtitle">
-            We’ve planned a relaxed, joy‑filled celebration. Arrive a little early, stay as late as you like.
-          </p>
-        </div>
-
-        <div class="timeline reveal">
-          
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-time">2:00 PM</div>
-            <div class="timeline-title">Wedding ceremony</div>
-            <div class="timeline-text">
-              A short, heartfelt ceremony as we exchange vows surrounded by the people we love most.
-            </div>
+      </section>
+      <!-- TIMELINE -->
+      <section class="section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <div class="section-tag">The Flow</div>
+            <h2 class="section-title">Evening timeline</h2>
+            <p class="section-subtitle"> We’ve planned a relaxed, joy‑filled celebration. Arrive a little early, stay as late as you like. </p>
           </div>
-	<div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-time">4:00 PM</div>
-            <div class="timeline-title">Guest arrival &amp; Registration</div>
-            <div class="timeline-text">
-              Doors open and light refreshments will be served as you mingle and find your seat for the ceremony.
+          <div class="timeline reveal">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">2:00 PM</div>
+              <div class="timeline-title">Wedding ceremony</div>
+              <div class="timeline-text"> A short, heartfelt ceremony as we exchange vows surrounded by the people we love most. </div>
             </div>
-          </div>
-
-	 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-time">4:15 PM</div>
-            <div class="timeline-title">Pica-Pica (Finger Food)</div>
-            <div class="timeline-text">
-              Drinks, hors d’oeuvres, and city views while we take photos with family and friends.
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">4:00 PM</div>
+              <div class="timeline-title">Guest arrival &amp; Registration</div>
+              <div class="timeline-text"> Doors open and light refreshments will be served as you mingle and find your seat for the ceremony. </div>
             </div>
-          </div>
-
- 	<div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-time">5:30 PM</div>
-            <div class="timeline-title">Grand Entrance</div>
-            <div class="timeline-text">
-              The celebration officially begins as the entourage enters the reception. Sponsors, bridesmaids, groomsmen, and finally the newly married couple make their grand entrance to welcome cheers and applause.
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">4:15 PM</div>
+              <div class="timeline-title">Pica-Pica (Finger Food)</div>
+              <div class="timeline-text"> Drinks, hors d’oeuvres, and city views while we take photos with family and friends. </div>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-time">6:00 PM</div>
-            <div class="timeline-title">Dinner &amp; Games</div>
-            <div class="timeline-text">
-              A seated dinner followed by toasts, cake, and games.
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">5:30 PM</div>
+              <div class="timeline-title">Grand Entrance</div>
+              <div class="timeline-text"> The celebration officially begins as the entourage enters the reception. Sponsors, bridesmaids, groomsmen, and finally the newly married couple make their grand entrance to welcome cheers and applause. </div>
             </div>
-          </div>
-
-	<div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-time">8:30 PM</div>
-            <div class="timeline-title">Closing</div>
-            <div class="timeline-text">
-             The night ends with a sparkler send-off, group photo, or final song to celebrate the beginning of their new life together.
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">6:00 PM</div>
+              <div class="timeline-title">Dinner &amp; Games</div>
+              <div class="timeline-text"> A seated dinner followed by toasts, cake, and games. </div>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-time">8:40 PM</div>
-            <div class="timeline-title">After party + Open Bar</div>
-            <div class="timeline-text">
-              The dance floor opens for everyone.
-Guests are invited to celebrate, drink and dance, and enjoy the rest of the evening with the couple.
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">8:30 PM</div>
+              <div class="timeline-title">Closing</div>
+              <div class="timeline-text"> The night ends with a sparkler send-off, group photo, or final song to celebrate the beginning of their new life together. </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">8:40 PM</div>
+              <div class="timeline-title">After party + Open Bar</div>
+              <div class="timeline-text"> The dance floor opens for everyone. Guests are invited to celebrate, drink and dance, and enjoy the rest of the evening with the couple. </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- RSVP -->
-    <section class="section section-alt rsvp-section" id="rsvp">
-      <div class="container">
-        <div class="rsvp-card reveal">
-          <div class="rsvp-deadline">Let us know before April 5, 2026</div>
-          <h2 class="section-title" style="margin-bottom: 0.4rem;">Will you celebrate with us?</h2>
-          <p class="rsvp-text">
-            Please let us know if you will be able to attend by submitting the form below. This will help us finalize seating,
-            dinner selections, and transportation for the day.
-          </p>
-
-          <div class="btn-row" style="margin-bottom: 0.6rem;">
-            <!-- Same RSVP link as in the hero -->
-            <a 
-               rel="noopener"
-               id="rsvpBtn2"
-               class="btn btn-primary">
-              Confirm Attendance
-            </a>
+      </section>
+      <!-- RSVP -->
+      <section class="section section-alt rsvp-section" id="rsvp">
+        <div class="container">
+          <div class="rsvp-card reveal">
+            <div class="rsvp-deadline">Let us know before April 5, 2026</div>
+            <h2 class="section-title" style="margin-bottom: 0.4rem;">Will you celebrate with us?</h2>
+            <p class="rsvp-text"> Please let us know if you will be able to attend by submitting the form below. This will help us finalize seating, dinner selections, and transportation for the day. </p>
+            <div class="btn-row" style="margin-bottom: 0.6rem;">
+              <!-- Same RSVP link as in the hero -->
+              <a rel="noopener" id="rsvpBtn2" class="btn btn-primary"> Confirm Attendance </a>
+            </div>
+            <p class="rsvp-note"> If you have any dietary restrictions, song requests, or questions, you can include them directly in the RSVP form. </p>
           </div>
-
-          <p class="rsvp-note">
-            If you have any dietary restrictions, song requests, or questions, you can include them directly in the RSVP form.
-          </p>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-names">Ken &amp; Karen</div>
-    <p class="footer-line">
-      We feel incredibly lucky to share this moment with you. Thank you for being part of our story.
-    </p>
-    <p style="font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 1rem;">
-      April 11, 2026 · Cebu City
-    </p>
-  </footer>
-
-  <script>
-    // Simple intersection observer to reveal elements on scroll
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-names">Ken &amp; Karen</div>
+      <p class="footer-line"> We feel incredibly lucky to share this moment with you. Thank you for being part of our story. </p>
+      <p style="font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; margin-top: 1rem;"> April 11, 2026 · Cebu City </p>
+    </footer>
+    <script>
+      // Simple intersection observer to reveal elements on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.16
         });
-      },
-      { threshold: 0.16 }
-    );
-
-    const params = new URLSearchParams(window.location.search);
-    const firstName = params.get('firstname') || "";
-    const lastName = params.get('lastname') || "";
-    const btn = document.getElementById('rsvpBtn');
-    const btn2 = document.getElementById('rsvpBtn2');
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    btn.addEventListener('click', () => {
-      console.log(JSON.stringify(params));
-      const fullName = encodeURIComponent(firstName + " " + lastName);
-      window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSd19hEncYpadlG_vdG9p6oFmklRPb7kHfdRtUbmRVMbH154TA/viewform?usp=pp_url&entry.1460024325=" 
-      + fullName
-      );
-    });
-
-    btn2.addEventListener('click', () => {
-      console.log(JSON.stringify(params));
-      const fullName = encodeURIComponent(firstName + " " + lastName);
-      window.open(
-      "https://docs.google.com/forms/d/e/1FAIpQLSd19hEncYpadlG_vdG9p6oFmklRPb7kHfdRtUbmRVMbH154TA/viewform?usp=pp_url&entry.1460024325=" 
-      + fullName
-      );
-    });
-  </script>
-</body>
+      const params = new URLSearchParams(window.location.search);
+      const firstName = params.get('firstname') || "";
+      const lastName = params.get('lastname') || "";
+      const btn = document.getElementById('rsvpBtn');
+      const btn2 = document.getElementById('rsvpBtn2');
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      btn.addEventListener('click', () => {
+        console.log(JSON.stringify(params));
+        const fullName = encodeURIComponent(firstName + " " + lastName);
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSd19hEncYpadlG_vdG9p6oFmklRPb7kHfdRtUbmRVMbH154TA/viewform?usp=pp_url&entry.1460024325=" + fullName);
+      });
+      btn2.addEventListener('click', () => {
+        console.log(JSON.stringify(params));
+        const fullName = encodeURIComponent(firstName + " " + lastName);
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSd19hEncYpadlG_vdG9p6oFmklRPb7kHfdRtUbmRVMbH154TA/viewform?usp=pp_url&entry.1460024325=" + fullName);
+      });
+    </script>
+  </body>
 </html>
