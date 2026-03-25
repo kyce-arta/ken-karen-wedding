@@ -89,8 +89,18 @@
 
       @media(max-width:700px) {
         .columns {
-          grid-template-columns: 1fr;
+          /**grid-template-columns: 1fr;**/
           gap: 50px;
+        }
+      }
+
+      @media (max-width: 450px) {
+        .ampersand{
+          display: block !important;
+        }
+        .hero::before {
+          background-image: linear-gradient(rgba(255, 182, 193, 0.5), #EAD1D7),  
+          url(https://raw.githubusercontent.com/kyce-arta/ken-karen-wedding/refs/heads/main/Sollertia-width-less.jpg) !important;
         }
       }
 
